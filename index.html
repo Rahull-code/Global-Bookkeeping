@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accounting & Bookkeeping Services Sydney | Navon Global</title>
+  <title>Accounting &amp; Bookkeeping Services Sydney | Navon Global</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -195,10 +195,12 @@
       width:100%;
     }
 
-    /* HERO - NEW SCREENSHOT STYLE */
+    /* HERO - MATCHED TO WEBSITE BRAND COLORS */
     .hero{
       padding:34px 0 26px;
-      background:var(--bg-main);
+      background:
+        radial-gradient(circle at top left, rgba(163,205,241,0.18), transparent 28%),
+        linear-gradient(180deg, #f7fbff 0%, var(--bg-main) 100%);
     }
 
     .hero-banner{
@@ -207,10 +209,11 @@
       border-radius:28px;
       overflow:hidden;
       background:
-        linear-gradient(90deg, rgba(15,23,42,0.72) 0%, rgba(15,23,42,0.52) 34%, rgba(15,23,42,0.16) 68%, rgba(15,23,42,0.08) 100%),
+        linear-gradient(90deg, rgba(31,53,86,0.82) 0%, rgba(40,75,120,0.66) 34%, rgba(62,111,168,0.26) 68%, rgba(163,205,241,0.10) 100%),
         url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-      box-shadow:0 28px 70px rgba(31,53,86,0.18);
+      box-shadow:0 28px 70px rgba(31,53,86,0.16);
       isolation:isolate;
+      border:1px solid rgba(199,204,212,0.55);
     }
 
     .hero-banner::before{
@@ -218,8 +221,8 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 78% 18%, rgba(255,196,107,0.26), transparent 20%),
-        radial-gradient(circle at 18% 80%, rgba(163,205,241,0.16), transparent 22%);
+        radial-gradient(circle at 78% 18%, rgba(163,205,241,0.22), transparent 20%),
+        radial-gradient(circle at 18% 80%, rgba(111,175,216,0.16), transparent 22%);
       z-index:0;
     }
 
@@ -237,9 +240,9 @@
       gap:10px;
       font-size:13px;
       font-weight:700;
-      letter-spacing:1.3px;
+      letter-spacing:1.2px;
       text-transform:uppercase;
-      color:#dcecff;
+      color:#e6f2ff;
       margin-bottom:18px;
     }
 
@@ -247,8 +250,8 @@
       content:"";
       width:36px;
       height:2px;
-      background:#dcecff;
-      opacity:.9;
+      background:var(--secondary);
+      opacity:1;
     }
 
     .hero-heading{
@@ -258,7 +261,8 @@
       margin-bottom:18px;
       letter-spacing:-1.4px;
       max-width:580px;
-      text-shadow:0 8px 18px rgba(0,0,0,0.18);
+      color:var(--white);
+      text-shadow:0 8px 18px rgba(31,53,86,0.22);
     }
 
     .hero-description{
@@ -278,29 +282,30 @@
     }
 
     .hero-btn-main{
-      background:#0f172a;
-      color:#fff;
+      background:var(--secondary);
+      color:var(--primary-dark);
       padding:15px 26px;
-      border-radius:10px;
+      border-radius:12px;
       text-decoration:none;
       font-weight:700;
       font-size:14px;
       letter-spacing:.2px;
-      border:1px solid rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.14);
       transition:.25s ease;
-      box-shadow:0 12px 30px rgba(0,0,0,0.18);
+      box-shadow:0 12px 30px rgba(31,53,86,0.18);
     }
 
     .hero-btn-main:hover{
       transform:translateY(-2px);
-      background:#111c33;
+      background:var(--secondary-strong);
+      color:var(--white);
     }
 
     .hero-btn-ghost{
-      background:rgba(255,255,255,0.12);
-      color:#fff;
+      background:rgba(255,255,255,0.10);
+      color:var(--white);
       padding:15px 24px;
-      border-radius:10px;
+      border-radius:12px;
       text-decoration:none;
       font-weight:600;
       font-size:14px;
@@ -311,7 +316,8 @@
     }
 
     .hero-btn-ghost:hover{
-      background:rgba(255,255,255,0.18);
+      background:rgba(163,205,241,0.18);
+      border-color:rgba(163,205,241,0.34);
     }
 
     .hero-points{
@@ -323,9 +329,9 @@
     .hero-point{
       padding:10px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.14);
-      color:#fff;
+      background:rgba(163,205,241,0.14);
+      border:1px solid rgba(163,205,241,0.22);
+      color:#f7fbff;
       font-size:13px;
       font-weight:500;
       backdrop-filter:blur(10px);
@@ -346,11 +352,11 @@
       width:9px;
       height:9px;
       border-radius:50%;
-      background:rgba(255,255,255,0.5);
+      background:rgba(255,255,255,0.45);
     }
 
     .hero-slider-dots span.active{
-      background:#3b82f6;
+      background:var(--secondary-strong);
     }
 
     /* BANNERS */
@@ -919,7 +925,7 @@
 
           <div class="hero-points">
             <div class="hero-point">✔ Expert bookkeeping</div>
-            <div class="hero-point">✔ Payroll & CFO support</div>
+            <div class="hero-point">✔ Payroll &amp; CFO support</div>
             <div class="hero-point">✔ Sydney compliance expertise</div>
           </div>
         </div>
@@ -939,7 +945,7 @@
       <div class="banner software-banner">
         <div>
           <span class="eyebrow">Working Within Your Existing Systems</span>
-          <h3 style="font-size:2.2rem; margin-bottom:14px;">Bookkeeping That Integrates with Xero, MYOB & QuickBooks</h3>
+          <h3 style="font-size:2.2rem; margin-bottom:14px;">Bookkeeping That Integrates with Xero, MYOB &amp; QuickBooks</h3>
           <p style="margin-bottom:12px;">
             We work directly within your accounting software to maintain accurate records, reconcile accounts and ensure financial data stays consistent.
           </p>
@@ -988,7 +994,7 @@
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">Meeting Tab</span>
-        <h2>Book an Initial Business & Tax Consultation</h2>
+        <h2>Book an Initial Business &amp; Tax Consultation</h2>
         <p>Select a time that suits you and speak with our team about your bookkeeping setup, reporting gaps and next steps.</p>
       </div>
 
@@ -997,7 +1003,7 @@
           <div class="meeting-left">
             <div>
               <small>Initial Consultation</small>
-              <h3>Business & Tax Meeting</h3>
+              <h3>Business &amp; Tax Meeting</h3>
               <p>Choose a preferred date and start your bookkeeping discussion with our team.</p>
             </div>
 
@@ -1046,19 +1052,19 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">📘</div>
-          <h3>Transaction Recording & Reconciliation</h3>
+          <h3>Transaction Recording &amp; Reconciliation</h3>
           <p>Accurate recording of income and expenses, plus regular bank and credit card reconciliations to ensure financial data is complete and correct.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">💳</div>
-          <h3>Accounts Payable & Receivable Management</h3>
+          <h3>Accounts Payable &amp; Receivable Management</h3>
           <p>Monitoring incoming and outgoing payments to help maintain cash flow visibility and reduce overdue balances.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">🧾</div>
-          <h3>BAS & GST Support</h3>
+          <h3>BAS &amp; GST Support</h3>
           <p>Preparation and review of GST records and BAS data to ensure accurate reporting and compliance with ATO requirements.</p>
         </div>
 
@@ -1076,7 +1082,7 @@
 
         <div class="service-card">
           <div class="service-icon">⚙️</div>
-          <h3>Software Setup & Optimisation</h3>
+          <h3>Software Setup &amp; Optimisation</h3>
           <p>Setup, cleanup and optimisation of bookkeeping systems to improve efficiency and reporting accuracy.</p>
         </div>
       </div>
@@ -1128,19 +1134,19 @@
       <div class="process-grid">
         <div class="process-card">
           <div class="step">1</div>
-          <h3>Initial Review & Setup</h3>
+          <h3>Initial Review &amp; Setup</h3>
           <p>We review your existing records and systems, identify gaps, and ensure your bookkeeping framework is correctly structured.</p>
         </div>
 
         <div class="process-card">
           <div class="step">2</div>
-          <h3>Ongoing Recording & Reconciliation</h3>
+          <h3>Ongoing Recording &amp; Reconciliation</h3>
           <p>We maintain regular transaction recording and account reconciliations to keep data accurate and current.</p>
         </div>
 
         <div class="process-card">
           <div class="step">3</div>
-          <h3>Reporting & Ongoing Support</h3>
+          <h3>Reporting &amp; Ongoing Support</h3>
           <p>We provide financial summaries and ongoing communication so you remain informed and prepared for compliance requirements.</p>
         </div>
       </div>
