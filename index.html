@@ -358,7 +358,40 @@
     .hero-slider-dots span.active{
       background:var(--secondary-strong);
     }
-  
+
+    /* STATS STRIP */
+    .stats-strip{
+      padding:8px 0 26px;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .stat-card{
+      background:var(--bg-card);
+      border:1px solid rgba(199,204,212,0.7);
+      border-radius:20px;
+      padding:26px 24px 24px;
+      box-shadow:0 8px 18px rgba(31,53,86,0.08);
+    }
+
+    .stat-card h3{
+      font-size:clamp(2rem, 3vw, 3rem);
+      line-height:1;
+      color:var(--primary);
+      margin-bottom:8px;
+      font-weight:800;
+    }
+
+    .stat-card p{
+      color:var(--text-muted);
+      font-size:16px;
+      line-height:1.4;
+    }
+
     /* BANNERS */
     .banner{
       background:var(--bg-card);
@@ -794,6 +827,10 @@
         padding:56px 40px;
         max-width:100%;
       }
+
+      .stats-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px){
@@ -881,6 +918,22 @@
         width:100%;
         border-radius:12px;
       }
+
+      .stats-grid{
+        grid-template-columns:1fr;
+      }
+
+      .stat-card{
+        padding:22px 20px;
+      }
+
+      .stat-card h3{
+        font-size:2.2rem;
+      }
+
+      .stat-card p{
+        font-size:15px;
+      }
     }
   </style>
 </head>
@@ -939,63 +992,32 @@
     </div>
   </section>
 
-  /* STATS STRIP */
-.stats-strip{
-  padding: 8px 0 26px;
-}
+  <!-- STATS -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>500+</h3>
+          <p>Businesses Served</p>
+        </div>
 
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:18px;
-}
+        <div class="stat-card">
+          <h3>15+</h3>
+          <p>Years Experience</p>
+        </div>
 
-.stat-card{
-  background:var(--bg-card);
-  border:1px solid rgba(199,204,212,0.7);
-  border-radius:20px;
-  padding:26px 24px 24px;
-  box-shadow:0 8px 18px rgba(31,53,86,0.08);
-}
+        <div class="stat-card">
+          <h3>98%</h3>
+          <p>Client Satisfaction</p>
+        </div>
 
-.stat-card h3{
-  font-size:clamp(2rem, 3vw, 3rem);
-  line-height:1;
-  color:var(--primary);
-  margin-bottom:8px;
-  font-weight:800;
-}
-
-.stat-card p{
-  color:var(--text-muted);
-  font-size:16px;
-  line-height:1.4;
-}
-
-/* Responsive */
-@media (max-width: 992px){
-  .stats-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 520px){
-  .stats-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stat-card{
-    padding:22px 20px;
-  }
-
-  .stat-card h3{
-    font-size:2.2rem;
-  }
-
-  .stat-card p{
-    font-size:15px;
-  }
-}  
+        <div class="stat-card">
+          <h3>24/7</h3>
+          <p>Support Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SOFTWARE -->
   <section class="section" id="software">
