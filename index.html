@@ -197,102 +197,108 @@
 
     /* HERO */
     .hero{
+      padding:32px 0 20px;
       background:
-        radial-gradient(circle at 12% 18%, rgba(163,205,241,0.18), transparent 18%),
-        linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, var(--accent) 100%);
-      color:var(--white);
+        radial-gradient(circle at top left, rgba(163,205,241,0.20), transparent 28%),
+        linear-gradient(180deg, #f7fbff 0%, #eef4fa 100%);
+    }
+
+    .hero-shell{
+      position:relative;
+      min-height:560px;
+      border-radius:28px;
       overflow:hidden;
-      position:relative;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      width:360px;
-      height:360px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.05);
-      top:-120px;
-      right:-110px;
-    }
-
-    .hero-wrap{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:30px;
+      background:
+        linear-gradient(90deg, rgba(22,34,52,0.46) 0%, rgba(22,34,52,0.18) 38%, rgba(22,34,52,0.04) 65%, rgba(22,34,52,0.02) 100%),
+        url('https://images.unsplash.com/photo-1524293581917-878a6d017c71?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
+      box-shadow:0 26px 70px rgba(31,53,86,0.18);
+      display:flex;
       align-items:center;
-      padding:64px 0;
-      position:relative;
-      z-index:1;
+      padding:44px;
     }
 
-    .hero .eyebrow{
-      color:#d6eaff;
+    .hero-content{
+      width:min(520px, 100%);
+      background:rgba(18, 29, 45, 0.48);
+      border:1px solid rgba(255,255,255,0.14);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-radius:24px;
+      padding:28px;
+      color:var(--white);
+      box-shadow:0 20px 50px rgba(0,0,0,0.18);
     }
 
-    .hero h1{
-      font-size:clamp(2.5rem, 5vw, 4.3rem);
-      line-height:1.08;
-      letter-spacing:-1.2px;
+    .hero-preheading{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      color:#dcecff;
       margin-bottom:18px;
     }
 
-    .hero p{
-      color:rgba(255,255,255,0.88);
-      font-size:17px;
-      max-width:620px;
-      margin-bottom:28px;
+    .hero-preheading::before{
+      content:"";
+      width:28px;
+      height:2px;
+      background:#dcecff;
+      opacity:.9;
     }
 
-    .hero-cta{
+    .hero-heading{
+      font-size:clamp(2.4rem, 5vw, 4.4rem);
+      line-height:0.98;
+      font-weight:800;
+      letter-spacing:-1.8px;
+      margin-bottom:20px;
+      color:#ffffff;
+    }
+
+    .hero-description{
+      font-size:17px;
+      line-height:1.72;
+      color:rgba(255,255,255,0.92);
+      margin-bottom:26px;
+      max-width:470px;
+    }
+
+    .hero-actions{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom:26px;
+      margin-bottom:20px;
+    }
+
+    .hero-actions .btn-secondary{
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.28);
+      background:rgba(255,255,255,0.10);
+    }
+
+    .hero-actions .btn-secondary:hover{
+      background:rgba(255,255,255,0.18);
+      color:#fff;
     }
 
     .hero-trust{
       display:flex;
       flex-wrap:wrap;
-      gap:12px;
+      gap:10px;
     }
 
-    .trust-pill{
-      padding:10px 14px;
+    .hero-trust span{
+      display:inline-flex;
+      align-items:center;
+      padding:9px 13px;
       border-radius:999px;
-      background:rgba(255,255,255,0.1);
-      border:1px solid rgba(255,255,255,0.12);
-      font-size:14px;
-    }
-
-    .hero-card{
-      background:rgba(255,255,255,0.11);
-      border:1px solid rgba(255,255,255,0.16);
-      border-radius:24px;
-      padding:22px;
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:0 24px 60px rgba(0,0,0,0.14);
-    }
-
-    .hero-card img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      border-radius:18px;
-      margin-bottom:16px;
-    }
-
-    .hero-card h3{
-      font-size:24px;
-      line-height:1.2;
-      margin-bottom:8px;
-    }
-
-    .hero-card p{
-      margin:0;
-      font-size:14px;
-      color:rgba(255,255,255,0.86);
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.14);
+      font-size:13px;
+      color:#fff;
     }
 
     /* BANNERS */
@@ -714,13 +720,23 @@
 
     /* RESPONSIVE */
     @media (max-width: 992px){
-      .hero-wrap,
       .software-banner,
       .picture-banner,
       .meeting-box,
       .why-grid,
       .process-grid{
         grid-template-columns:1fr;
+      }
+
+      .hero-shell{
+        min-height:620px;
+        padding:30px;
+        align-items:flex-end;
+      }
+
+      .hero-content{
+        width:100%;
+        max-width:100%;
       }
     }
 
@@ -742,17 +758,35 @@
       .slots{
         grid-template-columns:1fr;
       }
+
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-shell{
+        min-height:650px;
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .hero-content{
+        padding:22px;
+      }
+
+      .hero-heading{
+        font-size:2.5rem;
+      }
+
+      .hero-description{
+        font-size:15px;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
     }
 
     @media (max-width: 520px){
-      .hero-cta{
-        flex-direction:column;
-      }
-
-      .hero-cta .btn{
-        width:100%;
-      }
-
       .picture-stack,
       .software-logos{
         grid-template-columns:1fr;
@@ -764,6 +798,16 @@
 
       .lead-wrap{
         padding:20px 16px;
+      }
+
+      .hero-heading{
+        font-size:2.1rem;
+      }
+
+      .hero-trust span{
+        width:100%;
+        justify-content:center;
+        border-radius:12px;
       }
     }
   </style>
@@ -789,29 +833,31 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="container hero-wrap">
-      <div>
-        <span class="eyebrow">Trusted Sydney Accounting Experts</span>
-        <h1>Accounting &amp; Bookkeeping Services Sydney</h1>
-        <p>
-          Sydney-based accountants helping small businesses stay compliant, reduce tax, and scale with expert bookkeeping, payroll, and CFO services. Serving businesses across Sydney with tailored financial solutions backed by Australian compliance expertise.
-        </p>
+    <div class="container">
+      <div class="hero-shell">
+        <div class="hero-content">
+          <p class="hero-preheading">Trusted Sydney Accounting Experts</p>
 
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Book Free Consultation</a>
+          <h1 class="hero-heading">
+            Accounting &amp; Bookkeeping Services Sydney
+          </h1>
+
+          <p class="hero-description">
+            Sydney-based accountants helping small businesses stay compliant, reduce tax, and scale with expert bookkeeping, payroll, and CFO services. Serving businesses across Sydney with tailored financial solutions backed by Australian compliance expertise.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book Free Consultation</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
+
+          <div class="hero-trust">
+            <span>✔ Bookkeeping</span>
+            <span>✔ Payroll</span>
+            <span>✔ CFO Services</span>
+            <span>✔ Compliance Expertise</span>
+          </div>
         </div>
-
-        <div class="hero-trust">
-          <div class="trust-pill">✔ Bookkeeping & payroll support</div>
-          <div class="trust-pill">✔ Australian compliance expertise</div>
-          <div class="trust-pill">✔ Tailored financial solutions</div>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Accounting and bookkeeping services in Sydney">
-        <h3>Helping Sydney Businesses Stay Financially Organised</h3>
-        <p>From everyday bookkeeping to payroll and CFO support, we help small businesses stay compliant, reduce tax pressure and grow with confidence.</p>
       </div>
     </div>
   </section>
@@ -1105,13 +1151,11 @@
   </footer>
 
   <script>
-    // navbar shadow
     window.addEventListener("scroll", function(){
       const navbar = document.querySelector(".navbar");
       navbar.classList.toggle("scrolled", window.scrollY > 30);
     });
 
-    // active nav link
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -1135,14 +1179,12 @@
       });
     });
 
-    // faq
     document.querySelectorAll(".faq-question").forEach(button => {
       button.addEventListener("click", () => {
         button.parentElement.classList.toggle("active");
       });
     });
 
-    // simple form handler
     function handleFormSubmit(e){
       e.preventDefault();
 
