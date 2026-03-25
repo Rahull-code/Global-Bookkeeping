@@ -197,167 +197,312 @@
 
     /* HERO - MATCHED TO WEBSITE BRAND COLORS */
  /* HERO - SMALLER TEXT + MORE IMAGE VISIBLE */
+/* HERO - HIGH-END AGENCY STYLE */
 .hero{
-  padding:34px 0 26px;
+  padding:40px 0 34px;
   background:
-    radial-gradient(circle at top left, rgba(163,205,241,0.18), transparent 28%),
-    linear-gradient(180deg, #f7fbff 0%, var(--bg-main) 100%);
+    radial-gradient(circle at top left, rgba(163,205,241,0.20), transparent 24%),
+    radial-gradient(circle at 85% 15%, rgba(111,175,216,0.14), transparent 20%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg-main) 100%);
+  overflow:hidden;
 }
 
-.hero-banner{
+.hero-premium{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 540px);
+  gap:42px;
+  align-items:center;
+  min-height:560px;
+}
+
+.hero-premium-copy{
+  max-width:620px;
+}
+
+.hero-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:var(--accent);
+  margin-bottom:18px;
+}
+
+.hero-kicker::before{
+  content:"";
+  width:34px;
+  height:2px;
+  background:var(--secondary-strong);
+  border-radius:999px;
+}
+
+.hero-title{
+  font-size:clamp(2.5rem, 5vw, 4.5rem);
+  line-height:0.98;
+  letter-spacing:-2px;
+  color:var(--primary-dark);
+  margin-bottom:20px;
+  max-width:680px;
+}
+
+.hero-text{
+  font-size:17px;
+  line-height:1.8;
+  color:var(--text-muted);
+  max-width:600px;
+  margin-bottom:28px;
+}
+
+.hero-cta-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:26px;
+}
+
+.hero-link-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--primary-dark);
+  font-weight:600;
+  padding:14px 0;
+  transition:.25s ease;
+}
+
+.hero-link-btn:hover{
+  color:var(--accent);
+}
+
+.hero-proof{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.hero-proof span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.8);
+  border:1px solid rgba(199,204,212,0.85);
+  color:var(--primary-dark);
+  font-size:13px;
+  font-weight:600;
+  box-shadow:0 8px 20px rgba(31,53,86,0.06);
+}
+
+.hero-premium-visual{
   position:relative;
-  min-height:500px;
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-visual-main{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  height:500px;
   border-radius:28px;
   overflow:hidden;
-  background:
-    linear-gradient(90deg, rgba(31,53,86,0.62) 0%, rgba(40,75,120,0.46) 26%, rgba(62,111,168,0.18) 52%, rgba(163,205,241,0.04) 78%, rgba(163,205,241,0.00) 100%),
-    url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-  box-shadow:0 28px 70px rgba(31,53,86,0.16);
-  isolation:isolate;
-  border:1px solid rgba(199,204,212,0.55);
+  box-shadow:0 28px 70px rgba(31,53,86,0.18);
+  border:1px solid rgba(199,204,212,0.5);
 }
 
-.hero-banner::before{
+.hero-visual-main::after{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(163,205,241,0.12), transparent 20%),
-    radial-gradient(circle at 18% 80%, rgba(111,175,216,0.10), transparent 22%);
-  z-index:0;
+  background:linear-gradient(180deg, rgba(31,53,86,0.06), rgba(31,53,86,0.18));
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:500px;
-  padding:54px 48px;
-  color:var(--white);
+.hero-visual-main img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.hero-preheading{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1.1px;
-  text-transform:uppercase;
-  color:#e6f2ff;
-  margin-bottom:16px;
-}
-
-.hero-preheading::before{
-  content:"";
-  width:32px;
-  height:2px;
-  background:var(--secondary);
-  opacity:1;
-}
-
-.hero-heading{
-  font-size:clamp(2rem, 4vw, 3.4rem);
-  line-height:1.02;
-  font-weight:800;
-  margin-bottom:16px;
-  letter-spacing:-1.2px;
-  max-width:470px;
-  color:var(--white);
-  text-shadow:0 6px 14px rgba(31,53,86,0.16);
-}
-
-.hero-description{
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,0.92);
-  max-width:460px;
-  margin-bottom:22px;
-}
-
-.hero-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.hero-btn-main{
-  background:var(--secondary);
-  color:var(--primary-dark);
-  padding:13px 20px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:13px;
-  letter-spacing:.1px;
-  border:1px solid rgba(255,255,255,0.14);
-  transition:.25s ease;
-  box-shadow:0 12px 30px rgba(31,53,86,0.18);
-}
-
-.hero-btn-main:hover{
-  transform:translateY(-2px);
-  background:var(--secondary-strong);
-  color:var(--white);
-}
-
-.hero-btn-ghost{
-  background:rgba(255,255,255,0.08);
-  color:var(--white);
-  padding:13px 20px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:600;
-  font-size:13px;
-  border:1px solid rgba(255,255,255,0.16);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  transition:.25s ease;
-}
-
-.hero-btn-ghost:hover{
-  background:rgba(163,205,241,0.16);
-  border-color:rgba(163,205,241,0.30);
-}
-
-.hero-points{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.hero-point{
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(163,205,241,0.12);
-  border:1px solid rgba(163,205,241,0.20);
-  color:#f7fbff;
-  font-size:12px;
-  font-weight:500;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-
-.hero-slider-dots{
+.hero-floating-card{
   position:absolute;
-  left:50%;
-  bottom:18px;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px;
-  z-index:3;
+  background:rgba(255,255,255,0.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(199,204,212,0.75);
+  box-shadow:0 20px 50px rgba(31,53,86,0.12);
+  border-radius:22px;
 }
 
-.hero-slider-dots span{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.45);
+.hero-card-top{
+  top:24px;
+  left:-24px;
+  max-width:260px;
+  padding:20px;
 }
 
-.hero-slider-dots span.active{
-  background:var(--secondary-strong);
+.hero-card-top small{
+  display:block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.hero-card-top h3{
+  font-size:22px;
+  line-height:1.15;
+  color:var(--primary-dark);
+  margin-bottom:10px;
+}
+
+.hero-card-top p{
+  font-size:14px;
+  line-height:1.65;
+  color:var(--text-muted);
+}
+
+.hero-card-bottom{
+  right:-12px;
+  bottom:26px;
+  width:280px;
+  padding:18px;
+  display:grid;
+  gap:14px;
+}
+
+.mini-stat{
+  padding:12px 14px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(237,242,247,0.9), rgba(255,255,255,0.95));
+  border:1px solid rgba(199,204,212,0.7);
+}
+
+.mini-stat strong{
+  display:block;
+  color:var(--primary-dark);
+  font-size:15px;
+  margin-bottom:4px;
+}
+
+.mini-stat span{
+  display:block;
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+/* RESPONSIVE HERO */
+@media (max-width: 1100px){
+  .hero-premium{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .hero-premium-copy{
+    max-width:100%;
+  }
+
+  .hero-premium-visual{
+    min-height:500px;
+  }
+
+  .hero-visual-main{
+    max-width:100%;
+    height:460px;
+  }
+
+  .hero-card-top{
+    left:16px;
+  }
+
+  .hero-card-bottom{
+    right:16px;
+  }
+}
+
+@media (max-width: 768px){
+  .hero{
+    padding:28px 0 20px;
+  }
+
+  .hero-title{
+    font-size:2.4rem;
+    letter-spacing:-1.4px;
+  }
+
+  .hero-text{
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  .hero-cta-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .hero-link-btn{
+    justify-content:center;
+    padding:14px 24px;
+    border:1px solid var(--primary);
+    border-radius:12px;
+    background:transparent;
+  }
+
+  .hero-link-btn:hover{
+    background:var(--primary);
+    color:var(--white);
+  }
+
+  .hero-proof span{
+    width:100%;
+    border-radius:14px;
+  }
+
+  .hero-premium-visual{
+    min-height:auto;
+    display:block;
+  }
+
+  .hero-visual-main{
+    height:360px;
+    border-radius:22px;
+  }
+
+  .hero-card-top,
+  .hero-card-bottom{
+    position:static;
+    max-width:100%;
+    width:100%;
+    margin-top:16px;
+  }
+}
+
+@media (max-width: 520px){
+  .hero-title{
+    font-size:2rem;
+  }
+
+  .hero-kicker{
+    font-size:11px;
+  }
+
+  .hero-visual-main{
+    height:300px;
+  }
+
+  .hero-card-top h3{
+    font-size:20px;
+  }
 }
     
     /* BANNERS */
@@ -907,41 +1052,62 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="container">
-      <div class="hero-banner">
-        <div class="hero-content">
-          <p class="hero-preheading">Trusted Sydney Accounting Experts</p>
+  <!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-premium">
 
-          <h1 class="hero-heading">
-            Accounting &amp; Bookkeeping Services Sydney
-          </h1>
+      <div class="hero-premium-copy">
+        <p class="hero-kicker">Trusted Sydney Accounting Experts</p>
 
-          <p class="hero-description">
-            Sydney-based accountants helping small businesses stay compliant, reduce tax, and scale with expert bookkeeping, payroll, and CFO services. Serving businesses across Sydney with tailored financial solutions backed by Australian compliance expertise.
-          </p>
+        <h1 class="hero-title">
+          Accounting &amp; Bookkeeping Services Sydney
+        </h1>
 
-          <div class="hero-actions">
-            <a href="#contact" class="hero-btn-main">Book Free Consultation</a>
-            <a href="#services" class="hero-btn-ghost">Explore Services</a>
-          </div>
+        <p class="hero-text">
+          Sydney-based accountants helping small businesses stay compliant, reduce tax, and scale with expert bookkeeping, payroll, and CFO services. Serving businesses across Sydney with tailored financial solutions backed by Australian compliance expertise.
+        </p>
 
-          <div class="hero-points">
-            <div class="hero-point">✔ Expert bookkeeping</div>
-            <div class="hero-point">✔ Payroll &amp; CFO support</div>
-            <div class="hero-point">✔ Sydney compliance expertise</div>
-          </div>
+        <div class="hero-cta-row">
+          <a href="#contact" class="btn btn-primary">Book Free Consultation</a>
+          <a href="#services" class="hero-link-btn">Explore Services</a>
         </div>
 
-        <div class="hero-slider-dots">
-          <span class="active"></span>
-          <span></span>
-          <span></span>
+        <div class="hero-proof">
+          <span>Bookkeeping</span>
+          <span>Payroll</span>
+          <span>CFO Services</span>
+          <span>Compliance Expertise</span>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div class="hero-premium-visual">
+        <div class="hero-visual-main">
+          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80" alt="Sydney accounting and bookkeeping services">
+        </div>
+
+        <div class="hero-floating-card hero-card-top">
+          <small>Financial Clarity</small>
+          <h3>Built for growing Sydney businesses</h3>
+          <p>Structured support for bookkeeping, payroll, reporting, and financial oversight.</p>
+        </div>
+
+        <div class="hero-floating-card hero-card-bottom">
+          <div class="mini-stat">
+            <strong>Tailored</strong>
+            <span>Solutions aligned with your business stage</span>
+          </div>
+          <div class="mini-stat">
+            <strong>Reliable</strong>
+            <span>Clear systems, accurate reporting, ongoing support</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
   <!-- SOFTWARE -->
   <section class="section" id="software">
     <div class="container">
