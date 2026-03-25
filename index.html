@@ -104,27 +104,35 @@
       border:none;
     }
 
-    .btn-primary{
-      background:var(--primary);
-      color:var(--white);
-      box-shadow:0 10px 24px rgba(40, 75, 120, 0.22);
-    }
+   .btn-primary{
+  background:rgba(40,75,120,0.72);
+  color:var(--white);
+  border:1px solid rgba(255,255,255,0.18);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:
+    0 12px 26px rgba(40,75,120,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
 
-    .btn-primary:hover{
-      background:var(--primary-dark);
-      transform:translateY(-2px);
-    }
+.btn-primary:hover{
+  background:rgba(31,53,86,0.82);
+  transform:translateY(-2px);
+}
 
-    .btn-secondary{
-      background:transparent;
-      color:var(--primary);
-      border:1px solid var(--primary);
-    }
+.btn-secondary{
+  background:rgba(255,255,255,0.28);
+  color:var(--primary-dark);
+  border:1px solid rgba(255,255,255,0.30);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.18);
+}
 
-    .btn-secondary:hover{
-      background:var(--primary);
-      color:var(--white);
-    }
+.btn-secondary:hover{
+  background:rgba(40,75,120,0.16);
+  color:var(--primary-dark);
+}
 
     /* NAVBAR */
     .navbar{
@@ -284,25 +292,30 @@
       margin-bottom:28px;
     }
 
-    .hero-btn-main{
-      background:var(--secondary);
-      color:var(--primary-dark);
-      padding:15px 26px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:700;
-      font-size:14px;
-      letter-spacing:.2px;
-      border:1px solid rgba(255,255,255,0.14);
-      transition:.25s ease;
-      box-shadow:0 12px 30px rgba(31,53,86,0.18);
-    }
+   .hero-btn-main{
+  background:rgba(163,205,241,0.24);
+  color:var(--white);
+  padding:15px 26px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.2px;
+  border:1px solid rgba(255,255,255,0.24);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:.25s ease;
+  box-shadow:
+    0 12px 30px rgba(31,53,86,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+}
 
-    .hero-btn-main:hover{
-      transform:translateY(-2px);
-      background:var(--secondary-strong);
-      color:var(--white);
-    }
+.hero-btn-main:hover{
+  transform:translateY(-2px);
+  background:rgba(111,175,216,0.32);
+  color:var(--white);
+  border-color:rgba(255,255,255,0.30);
+}
 
     .hero-btn-ghost{
       background:rgba(255,255,255,0.12);
@@ -399,24 +412,24 @@
       line-height:1.4;
     }
 
-    /* GLASS EFFECT BLOCKS */
-    .banner,
-    .service-card,
-    .why-card,
-    .process-card,
-    .faq-item,
-    .lead-wrap,
-    .meeting-shell,
-    .logo-box{
-      background:rgba(255,255,255,0.62);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      border:1px solid rgba(255,255,255,0.35);
-      box-shadow:
-        0 10px 30px rgba(31,53,86,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.35);
-    }
-
+   /* GLASS EFFECT BLOCKS */
+.banner,
+.service-card,
+.why-card,
+.process-card,
+.faq-item,
+.lead-wrap,
+.meeting-shell,
+.logo-box,
+.stat-card{
+  background:rgba(255,255,255,0.38);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.30);
+  box-shadow:
+    0 12px 34px rgba(31,53,86,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+}
     .faq-answer{
       background:transparent;
     }
@@ -601,17 +614,18 @@
     }
 
     .slot{
-      border:1px solid rgba(255,255,255,0.38);
-      border-radius:12px;
-      background:rgba(255,255,255,0.45);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      padding:14px 16px;
-      text-align:center;
-      font-weight:600;
-      color:#364152;
-      transition:.25s ease;
-    }
+  border:1px solid rgba(255,255,255,0.32);
+  border-radius:12px;
+  background:rgba(255,255,255,0.30);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:14px 16px;
+  text-align:center;
+  font-weight:600;
+  color:#364152;
+  transition:.25s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);
+}
 
     .slot:hover{
       border-color:var(--accent);
@@ -668,14 +682,14 @@
   border-radius:16px;
   display:grid;
   place-items:center;
-  background:rgba(255,255,255,0.34);
+  background:rgba(255,255,255,0.24);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.28);
+  border:1px solid rgba(255,255,255,0.24);
   color:var(--primary-dark);
   font-size:24px;
   margin-bottom:16px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.20);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);
 }
 
 .service-card h3{
@@ -803,39 +817,36 @@
     }
 
     .lead-form input,
-    .lead-form textarea{
-      width:100%;
-      padding:14px 16px;
-      border:1px solid rgba(255,255,255,0.45);
-      border-radius:12px;
-      outline:none;
-      font-size:15px;
-      color:var(--text-main);
-      background:rgba(255,255,255,0.56);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      resize:vertical;
-      transition:.2s ease;
-    }
-
-    .lead-form input:focus,
-    .lead-form textarea:focus{
-      border-color:var(--accent);
-      box-shadow:0 0 0 4px rgba(111,175,216,0.18);
-    }
+.lead-form textarea{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,0.34);
+  border-radius:12px;
+  outline:none;
+  font-size:15px;
+  color:var(--text-main);
+  background:rgba(255,255,255,0.34);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  resize:vertical;
+  transition:.2s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);
+}
 
     /* FOOTER */
-    footer{
-      background:rgba(31,53,86,0.92);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      color:#dbe7f5;
-      text-align:center;
-      padding:28px 0;
-      font-size:14px;
-      margin-top:20px;
-    }
-
+  
+   footer{
+  background:rgba(31,53,86,0.58);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-top:1px solid rgba(255,255,255,0.18);
+  color:#dbe7f5;
+  text-align:center;
+  padding:28px 0;
+  font-size:14px;
+  margin-top:20px;
+}
+    
     /* RESPONSIVE */
     @media (max-width: 992px){
       .software-banner,
