@@ -1490,128 +1490,99 @@
   </div>
 
   <script>
-    window.addEventListener("scroll", function(){
-      const navbar = document.querySelector(".navbar");
-      navbar.classList.toggle("scrolled", window.scrollY > 30);
+  window.addEventListener("scroll", function(){
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 30);
+  });
+
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  window.addEventListener("scroll", () => {
+    let activeSection = "";
+
+    sections.forEach(section => {
+      const top = section.offsetTop - 140;
+      const height = section.offsetHeight;
+
+      if (window.scrollY >= top && window.scrollY < top + height) {
+        activeSection = section.getAttribute("id");
+      }
     });
 
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    window.addEventListener("scroll", () => {
-      let activeSection = "";
-
-      sections.forEach(section => {
-        const top = section.offsetTop - 140;
-        const height = section.offsetHeight;
-
-        if (window.scrollY >= top && window.scrollY < top + height) {
-          activeSection = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + activeSection) {
-          link.classList.add("active");
-        }
-      });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + activeSection) {
+        link.classList.add("active");
+      }
     });
+  });
 
-    document.querySelectorAll(".faq-question").forEach(button => {
-      button.addEventListener("click", () => {
-        button.parentElement.classList.toggle("active");
-      });
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      button.parentElement.classList.toggle("active");
     });
+  });
 
-    function handleFormSubmit(e){
-      e.preventDefault();
+  function handleFormSubmit(e){
+    e.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const company = document.getElementById("company").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const company = document.getElementById("company").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-      const subject = encodeURIComponent("New Bookkeeping Enquiry");
-      const body = encodeURIComponent(
-        "Name: " + name + "\n" +
-        "Company: " + company + "\n" +
-        "Email: " + email + "\n" +
-        "Phone: " + phone + "\n\n" +
-        "Message:\n" + message
-      );
+    const subject = encodeURIComponent("New Bookkeeping Enquiry");
+    const body = encodeURIComponent(
+      "Name: " + name + "\n" +
+      "Company: " + company + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + phone + "\n\n" +
+      "Message:\n" + message
+    );
 
-      window.location.href = "mailto:your@email.com?subject=" + subject + "&body=" + body;
+    window.location.href = "mailto:your@email.com?subject=" + subject + "&body=" + body;
+  }
+
+  document.addEventListener("mousemove", e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 8;
+    const y = (e.clientY / window.innerHeight - 0.5) * -8;
+
+    document.querySelectorAll('.service-card, .why-card, .process-card').forEach(el => {
+      el.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg) translateY(-6px)`;
+    });
+  });
+
+  document.addEventListener("mouseleave", () => {
+    document.querySelectorAll('.service-card, .why-card, .process-card').forEach(el => {
+      el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const hero = document.querySelector(".hero-banner");
+    if (hero) {
+      hero.style.transform = `translateY(${window.scrollY * 0.12}px)`;
     }
+  }, { passive: true });
 
-    /* Smooth scroll feel */
-    let currentScroll = window.scrollY;
-    let targetScroll = window.scrollY;
-    let isProgrammaticScroll = false;
+  const glow = document.createElement("div");
+  glow.style.position = "fixed";
+  glow.style.width = "300px";
+  glow.style.height = "300px";
+  glow.style.background = "radial-gradient(circle, rgba(163,205,241,0.25), transparent)";
+  glow.style.pointerEvents = "none";
+  glow.style.borderRadius = "50%";
+  glow.style.zIndex = "0";
+  glow.style.left = "0";
+  glow.style.top = "0";
+  document.body.appendChild(glow);
 
-    window.addEventListener("scroll", () => {
-      if (!isProgrammaticScroll) {
-        targetScroll = window.scrollY;
-      }
-    }, { passive: true });
-
-    function smoothScrollLoop(){
-      currentScroll += (targetScroll - currentScroll) * 0.08;
-
-      if (Math.abs(targetScroll - currentScroll) > 0.1) {
-        isProgrammaticScroll = true;
-        window.scrollTo(0, currentScroll);
-      } else {
-        isProgrammaticScroll = false;
-      }
-
-      requestAnimationFrame(smoothScrollLoop);
-    }
-
-    smoothScrollLoop();
-
-    /* Parallax depth cards */
-    document.addEventListener("mousemove", e => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 8;
-      const y = (e.clientY / window.innerHeight - 0.5) * -8;
-
-      document.querySelectorAll('.service-card, .why-card, .process-card').forEach(el => {
-        el.style.transform = `perspective(1000px) rotateX(${y}deg) rotateY(${x}deg) translateY(-6px)`;
-      });
-    });
-
-    document.addEventListener("mouseleave", () => {
-      document.querySelectorAll('.service-card, .why-card, .process-card').forEach(el => {
-        el.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
-      });
-    });
-
-    /* Hero parallax */
-    window.addEventListener("scroll", () => {
-      const hero = document.querySelector(".hero-banner");
-      if (hero) {
-        hero.style.transform = `translateY(${window.scrollY * 0.12}px)`;
-      }
-    }, { passive: true });
-
-    /* Glow follow */
-    const glow = document.createElement("div");
-    glow.style.position = "fixed";
-    glow.style.width = "300px";
-    glow.style.height = "300px";
-    glow.style.background = "radial-gradient(circle, rgba(163,205,241,0.25), transparent)";
-    glow.style.pointerEvents = "none";
-    glow.style.borderRadius = "50%";
-    glow.style.zIndex = "0";
-    glow.style.left = "0";
-    glow.style.top = "0";
-    document.body.appendChild(glow);
-
-    document.addEventListener("mousemove", e => {
-      glow.style.left = (e.clientX - 150) + "px";
-      glow.style.top = (e.clientY - 150) + "px";
-    });
-  </script>
+  document.addEventListener("mousemove", e => {
+    glow.style.left = (e.clientX - 150) + "px";
+    glow.style.top = (e.clientY - 150) + "px";
+  });
+</script>
 </body>
 </html>
