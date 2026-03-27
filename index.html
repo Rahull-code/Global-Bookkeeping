@@ -385,16 +385,18 @@
       gap:18px;
     }
 
-    .stat-card{
-      background:rgba(255,255,255,0.24);
-      border:1px solid rgba(255,255,255,0.32);
-      border-radius:20px;
-      padding:26px 24px 24px;
-      box-shadow:
-        0 14px 38px rgba(31,53,86,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.18);
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-    }
+   .stat-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.22);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-radius:20px;
+  padding:26px 24px 24px;
+  box-shadow:
+    0 10px 30px rgba(31,53,86,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
 
     .stat-card:hover{
       transform:translateY(-4px);
@@ -668,20 +670,17 @@
 
     .service-card{
       position:relative;
-      overflow:hidden;
-      padding:22px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        0 12px 30px rgba(31,53,86,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.20);
-      transition:.25s ease;
-      background:
-        linear-gradient(135deg, rgba(31,53,86,0.82) 0%, rgba(40,75,120,0.66) 45%, rgba(62,111,168,0.42) 100%),
-        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-      transform-style:preserve-3d;
-      will-change:transform;
-    }
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 12px 30px rgba(31,53,86,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  will-change:transform;
+}
 
     .service-card::before{
       content:"";
@@ -692,15 +691,15 @@
       pointer-events:none;
     }
 
-    .service-card:hover{
-      border-color:rgba(255,255,255,0.28);
-      box-shadow:
-        0 18px 42px rgba(31,53,86,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.24);
-      background:
-        linear-gradient(135deg, rgba(31,53,86,0.90) 0%, rgba(40,75,120,0.74) 45%, rgba(62,111,168,0.50) 100%),
-        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-    }
+    .service-card:hover,
+.why-card:hover,
+.process-card:hover{
+  border-color:rgba(255,255,255,0.30);
+  background:rgba(255,255,255,0.12);
+  box-shadow:
+    0 18px 42px rgba(31,53,86,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
 
     .service-icon{
       width:56px;
@@ -749,20 +748,17 @@
 
     .why-card{
       position:relative;
-      overflow:hidden;
-      padding:20px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        0 12px 30px rgba(31,53,86,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.20);
-      transition:.25s ease;
-      background:
-        linear-gradient(135deg, rgba(31,53,86,0.82) 0%, rgba(40,75,120,0.66) 45%, rgba(62,111,168,0.42) 100%),
-        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-      transform-style:preserve-3d;
-      will-change:transform;
-    }
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 12px 30px rgba(31,53,86,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  will-change:transform;
+}
 
     .why-card::before{
       content:"";
@@ -803,20 +799,17 @@
 
     .process-card{
       position:relative;
-      overflow:hidden;
-      padding:22px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:
-        0 12px 30px rgba(31,53,86,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.20);
-      transition:.25s ease;
-      background:
-        linear-gradient(135deg, rgba(31,53,86,0.82) 0%, rgba(40,75,120,0.66) 45%, rgba(62,111,168,0.42) 100%),
-        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-      transform-style:preserve-3d;
-      will-change:transform;
-    }
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 12px 30px rgba(31,53,86,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  will-change:transform;
+}
 
     .process-card::before{
       content:"";
@@ -827,15 +820,13 @@
       pointer-events:none;
     }
 
-    .process-card:hover{
-      border-color:rgba(255,255,255,0.28);
-      box-shadow:
-        0 18px 42px rgba(31,53,86,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.24);
-      background:
-        linear-gradient(135deg, rgba(31,53,86,0.90) 0%, rgba(40,75,120,0.74) 45%, rgba(62,111,168,0.50) 100%),
-        url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80') center center/cover no-repeat;
-    }
+   .process-card:hover{
+  border-color:rgba(255,255,255,0.30);
+  background:rgba(255,255,255,0.12);
+  box-shadow:
+    0 18px 42px rgba(31,53,86,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
 
     .step{
       width:44px;
