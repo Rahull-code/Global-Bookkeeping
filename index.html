@@ -429,30 +429,34 @@
 
     /* SHARED CARD STYLE */
     .banner,
-    .faq-item,
-    .lead-wrap,
-    .meeting-shell,
-    .logo-box{
-      background:rgba(255,255,255,0.24);
-      border:1px solid rgba(255,255,255,0.32);
-      box-shadow:
-        0 14px 38px rgba(31,53,86,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.18);
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-    }
+.faq-item,
+.lead-wrap,
+.meeting-shell,
+.logo-box,
+.stat-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.22);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 10px 30px rgba(31,53,86,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.20);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
 
     .banner:hover,
-    .faq-item:hover,
-    .lead-wrap:hover,
-    .meeting-shell:hover,
-    .logo-box:hover{
-      transform:translateY(-4px);
-      background:rgba(255,255,255,0.30);
-      border-color:rgba(255,255,255,0.40);
-      box-shadow:
-        0 18px 42px rgba(31,53,86,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.22);
-    }
+.faq-item:hover,
+.lead-wrap:hover,
+.meeting-shell:hover,
+.logo-box:hover,
+.stat-card:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,0.12);
+  border-color:rgba(255,255,255,0.30);
+  box-shadow:
+    0 18px 42px rgba(31,53,86,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+}
 
     .faq-answer{
       background:transparent;
