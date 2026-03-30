@@ -508,7 +508,9 @@
     .faq-item,
     .lead-wrap,
     .meeting-shell,
-    .logo-box{
+    .logo-box,
+    .software-expertise-wrap,
+    .software-expertise-card{
       background:var(--glass-bg);
       border:1px solid var(--glass-border);
       backdrop-filter:blur(var(--glass-blur));
@@ -523,7 +525,9 @@
     .faq-item::before,
     .lead-wrap::before,
     .meeting-shell::before,
-    .logo-box::before{
+    .logo-box::before,
+    .software-expertise-wrap::before,
+    .software-expertise-card::before{
       content:"";
       position:absolute;
       inset:0;
@@ -535,7 +539,9 @@
     .faq-item:hover,
     .lead-wrap:hover,
     .meeting-shell:hover,
-    .logo-box:hover{
+    .logo-box:hover,
+    .software-expertise-wrap:hover,
+    .software-expertise-card:hover{
       transform:translateY(-4px);
       background:var(--glass-bg-hover);
       border-color:var(--glass-border-hover);
@@ -609,6 +615,54 @@
     .logo-box:hover img{
       filter:none;
       opacity:1;
+    }
+
+    /* NEW SOFTWARE EXPERTISE SECTION */
+    .software-expertise-wrap{
+      border-radius:32px;
+      padding:34px 28px 10px;
+    }
+
+    .software-expertise-heading{
+      margin-bottom:28px;
+    }
+
+    .software-expertise-grid{
+      display:grid;
+      grid-template-columns:repeat(6, minmax(120px, 1fr));
+      gap:20px;
+      position:relative;
+      z-index:2;
+    }
+
+    .software-expertise-card{
+      min-height:120px;
+      border-radius:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .software-expertise-card img{
+      max-width:90px;
+      max-height:52px;
+      object-fit:contain;
+      transition:all .3s ease;
+      position:relative;
+      z-index:1;
+    }
+
+    .software-expertise-card:hover img{
+      transform:scale(1.06);
+    }
+
+    .software-text-logo{
+      font-size:22px;
+      font-weight:700;
+      color:var(--primary-dark);
+      position:relative;
+      z-index:1;
     }
 
     .picture-banner{
@@ -1066,6 +1120,12 @@
       -webkit-backdrop-filter:blur(14px);
     }
 
+    @media (max-width: 1100px){
+      .software-expertise-grid{
+        grid-template-columns:repeat(3, 1fr);
+      }
+    }
+
     @media (max-width: 992px){
       .software-banner,
       .picture-banner,
@@ -1101,6 +1161,25 @@
 
       .software-logos{
         grid-template-columns:repeat(3, minmax(90px, 1fr));
+      }
+
+      .software-expertise-wrap{
+        padding:26px 18px 6px;
+      }
+
+      .software-expertise-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:16px;
+      }
+
+      .software-expertise-card{
+        min-height:105px;
+        border-radius:18px;
+      }
+
+      .software-expertise-card img{
+        max-width:78px;
+        max-height:44px;
       }
 
       .lead-form,
@@ -1156,7 +1235,8 @@
 
     @media (max-width: 520px){
       .picture-stack,
-      .software-logos{
+      .software-logos,
+      .software-expertise-grid{
         grid-template-columns:1fr;
       }
 
@@ -1305,6 +1385,48 @@
           <div class="logo-box"><img src="https://cdn.worldvectorlogo.com/logos/xero-1.svg" alt="Xero"></div>
           <div class="logo-box"><img src="https://cdn.worldvectorlogo.com/logos/myob.svg" alt="MYOB"></div>
           <div class="logo-box"><img src="https://cdn.worldvectorlogo.com/logos/quickbooks-2.svg" alt="QuickBooks"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SOFTWARE EXPERTISE SECTION -->
+  <section class="section" id="software-expertise">
+    <div class="container">
+      <div class="software-expertise-wrap">
+        <div class="section-title software-expertise-heading">
+          <span class="eyebrow">Software Expertise</span>
+          <h2>Platforms We Work With Every Day</h2>
+          <p>
+            Our team works confidently across leading accounting and business platforms,
+            helping maintain clean records, smoother workflows and better reporting.
+          </p>
+        </div>
+
+        <div class="software-expertise-grid">
+          <div class="software-expertise-card">
+            <img src="https://cdn.worldvectorlogo.com/logos/xero-1.svg" alt="Xero">
+          </div>
+
+          <div class="software-expertise-card">
+            <img src="https://cdn.worldvectorlogo.com/logos/hubdoc.svg" alt="Hubdoc">
+          </div>
+
+          <div class="software-expertise-card">
+            <img src="https://cdn.worldvectorlogo.com/logos/dext.svg" alt="Dext">
+          </div>
+
+          <div class="software-expertise-card">
+            <img src="https://cdn.worldvectorlogo.com/logos/quickbooks-2.svg" alt="QuickBooks">
+          </div>
+
+          <div class="software-expertise-card">
+            <img src="https://cdn.worldvectorlogo.com/logos/myob.svg" alt="MYOB">
+          </div>
+
+          <div class="software-expertise-card">
+            <span class="software-text-logo">+ More</span>
+          </div>
         </div>
       </div>
     </div>
