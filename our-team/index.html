@@ -5,19 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Team - Navon Global</title>
 
-  <!-- MAIN WEBSITE CSS -->
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="/style.css" />
 
   <style>
+    :root{
+      --primary-dark:#1f3556;
+      --accent:#00bfff;
+      --text-muted:#6b7f99;
+
+      --glass-bg:rgba(255,255,255,0.22);
+      --glass-bg-hover:rgba(255,255,255,0.28);
+      --glass-border:rgba(255,255,255,0.35);
+      --glass-border-hover:rgba(255,255,255,0.48);
+      --glass-shadow:0 18px 45px rgba(31,53,86,0.12);
+      --glass-inset:inset 0 1px 0 rgba(255,255,255,0.35);
+      --glass-blur:18px;
+    }
+
     body{
       margin:0;
       font-family:'Segoe UI', sans-serif;
-      background:linear-gradient(180deg, #f7fbff 0%, #eef5fc 100%);
-      color:#1f3556;
+      color:var(--primary-dark);
+      background:
+        radial-gradient(circle at top left, rgba(0,191,255,0.08), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(74,144,226,0.08), transparent 24%),
+        linear-gradient(180deg, #edf4fb 0%, #e8f0f8 100%);
+    }
+
+    .container{
+      width:min(1200px, calc(100% - 32px));
+      margin:0 auto;
     }
 
     .team-page{
-      padding:90px 20px;
+      padding:90px 0;
       position:relative;
       overflow:hidden;
     }
@@ -27,11 +48,11 @@
       position:absolute;
       top:-120px;
       left:-80px;
-      width:280px;
-      height:280px;
+      width:300px;
+      height:300px;
       border-radius:50%;
-      background:rgba(74, 144, 226, 0.10);
-      filter:blur(40px);
+      background:rgba(0,191,255,0.10);
+      filter:blur(50px);
       pointer-events:none;
     }
 
@@ -39,75 +60,90 @@
       content:"";
       position:absolute;
       right:-100px;
-      bottom:-80px;
+      bottom:-100px;
       width:320px;
       height:320px;
       border-radius:50%;
-      background:rgba(0, 183, 255, 0.08);
-      filter:blur(40px);
+      background:rgba(74,144,226,0.10);
+      filter:blur(55px);
       pointer-events:none;
     }
 
-    .team-container{
-      max-width:1200px;
-      margin:0 auto;
+    .team-shell{
       position:relative;
-      z-index:2;
+      z-index:1;
     }
 
     .team-hero{
       text-align:center;
-      max-width:900px;
-      margin:0 auto 40px;
-      padding:48px 30px;
-      border-radius:28px;
-      background:rgba(255,255,255,0.55);
-      border:1px solid rgba(255,255,255,0.8);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      box-shadow:
-        0 20px 50px rgba(31,53,86,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.75);
+      max-width:980px;
+      margin:0 auto 34px;
+      padding:52px 38px;
+      border-radius:34px;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(var(--glass-blur));
+      -webkit-backdrop-filter:blur(var(--glass-blur));
+      box-shadow:var(--glass-shadow), var(--glass-inset);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .team-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.04) 45%, rgba(255,255,255,0) 65%);
+      pointer-events:none;
     }
 
     .team-mini-title{
       display:inline-block;
+      margin-bottom:12px;
+      color:#0b73c4;
       font-size:13px;
       font-weight:800;
-      letter-spacing:1.5px;
+      letter-spacing:2px;
       text-transform:uppercase;
-      color:#0f6db8;
-      margin-bottom:12px;
+      position:relative;
+      z-index:1;
     }
 
     .team-hero h1{
-      font-size:clamp(2.2rem, 5vw, 3.8rem);
-      line-height:1.1;
-      margin:0 0 14px;
-      color:#10223b;
+      margin:0 0 18px;
+      font-size:clamp(2.4rem, 5vw, 4.3rem);
+      line-height:1.05;
+      color:#0d2745;
+      position:relative;
+      z-index:1;
     }
 
     .team-hero p{
-      max-width:780px;
-      margin:0 auto 10px;
+      max-width:820px;
+      margin:0 auto 12px;
       font-size:16px;
-      line-height:1.8;
-      color:#60748e;
+      line-height:1.85;
+      color:var(--text-muted);
+      position:relative;
+      z-index:1;
     }
 
     .team-actions{
-      margin-top:24px;
+      margin-top:26px;
       display:flex;
-      gap:14px;
       justify-content:center;
       flex-wrap:wrap;
+      gap:14px;
+      position:relative;
+      z-index:1;
     }
 
     .team-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:13px 24px;
+      min-width:160px;
+      padding:14px 24px;
       border-radius:999px;
       text-decoration:none;
       font-weight:700;
@@ -115,30 +151,33 @@
     }
 
     .team-btn-primary{
-      background:linear-gradient(135deg, #0f6db8, #38bdf8);
       color:#fff;
-      box-shadow:0 14px 28px rgba(15,109,184,0.18);
+      background:linear-gradient(135deg, #0f7fd2, #13b5f4);
+      box-shadow:0 14px 28px rgba(15,127,210,0.22);
     }
 
     .team-btn-primary:hover{
       transform:translateY(-3px);
+      box-shadow:0 18px 34px rgba(15,127,210,0.28);
     }
 
     .team-btn-secondary{
-      background:rgba(255,255,255,0.75);
-      color:#17395c;
-      border:1px solid rgba(23,57,92,0.10);
+      color:var(--primary-dark);
+      background:rgba(255,255,255,0.22);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
     .team-btn-secondary:hover{
       transform:translateY(-3px);
-      background:#fff;
+      background:rgba(255,255,255,0.30);
     }
 
     .tabs-wrap{
       display:flex;
       justify-content:center;
-      margin-bottom:34px;
+      margin-bottom:28px;
     }
 
     .tabs{
@@ -147,11 +186,11 @@
       flex-wrap:wrap;
       padding:10px;
       border-radius:999px;
-      background:rgba(255,255,255,0.60);
-      border:1px solid rgba(255,255,255,0.80);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      box-shadow:0 14px 36px rgba(31,53,86,0.08);
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(var(--glass-blur));
+      -webkit-backdrop-filter:blur(var(--glass-blur));
+      box-shadow:var(--glass-shadow), var(--glass-inset);
     }
 
     .tab-btn{
@@ -161,48 +200,50 @@
       padding:12px 22px;
       border-radius:999px;
       background:transparent;
-      color:#17395c;
-      font-weight:700;
+      color:var(--primary-dark);
       font-size:15px;
+      font-weight:700;
       transition:all .3s ease;
     }
 
     .tab-btn.active{
-      background:linear-gradient(135deg, #0f6db8, #38bdf8);
       color:#fff;
-      box-shadow:0 10px 24px rgba(15,109,184,0.18);
+      background:linear-gradient(135deg, #0f7fd2, #13b5f4);
+      box-shadow:0 10px 24px rgba(15,127,210,0.22);
     }
 
     .tab-content{
       display:none;
-      animation:fadeUp .4s ease;
+      animation:teamFade .4s ease;
     }
 
     .tab-content.active{
       display:block;
     }
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(16px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+    @keyframes teamFade{
+      from{opacity:0; transform:translateY(14px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
     .team-panel{
       padding:34px;
-      border-radius:28px;
-      background:rgba(255,255,255,0.48);
-      border:1px solid rgba(255,255,255,0.78);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      box-shadow:
-        0 20px 50px rgba(31,53,86,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.72);
+      border-radius:30px;
+      background:var(--glass-bg);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(var(--glass-blur));
+      -webkit-backdrop-filter:blur(var(--glass-blur));
+      box-shadow:var(--glass-shadow), var(--glass-inset);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .team-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,0.24), rgba(255,255,255,0.03) 48%, rgba(255,255,255,0) 66%);
+      pointer-events:none;
     }
 
     .team-panel-head{
@@ -212,85 +253,104 @@
       gap:20px;
       flex-wrap:wrap;
       margin-bottom:26px;
+      position:relative;
+      z-index:1;
+    }
+
+    .team-panel-label{
+      display:inline-block;
+      margin-bottom:8px;
+      color:#0b73c4;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
     }
 
     .team-panel-head h2{
       margin:0;
       font-size:2rem;
-      color:#10223b;
+      color:#0d2745;
     }
 
     .team-panel-head p{
-      max-width:560px;
+      max-width:520px;
       margin:0;
-      color:#60748e;
+      color:var(--text-muted);
       line-height:1.8;
-    }
-
-    .team-panel-label{
-      display:inline-block;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:1.4px;
-      text-transform:uppercase;
-      color:#0f6db8;
-      margin-bottom:8px;
     }
 
     .team-grid{
       display:grid;
       grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:22px;
+      position:relative;
+      z-index:1;
     }
 
     .team-grid.two{
       grid-template-columns:repeat(2, minmax(0, 1fr));
     }
 
-    .card{
-      border-radius:24px;
+    .team-card{
+      border-radius:26px;
       overflow:hidden;
-      background:rgba(255,255,255,0.78);
-      border:1px solid rgba(255,255,255,0.9);
+      background:rgba(255,255,255,0.18);
+      border:1px solid rgba(255,255,255,0.38);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
       box-shadow:
-        0 18px 42px rgba(31,53,86,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.88);
-      transition:transform .35s ease, box-shadow .35s ease;
+        0 16px 36px rgba(31,53,86,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.30);
+      transition:all .35s ease;
+      position:relative;
     }
 
-    .card:hover{
+    .team-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02) 46%, rgba(255,255,255,0) 64%);
+      pointer-events:none;
+    }
+
+    .team-card:hover{
       transform:translateY(-8px);
+      background:var(--glass-bg-hover);
+      border-color:var(--glass-border-hover);
       box-shadow:
-        0 26px 54px rgba(31,53,86,0.16),
-        inset 0 1px 0 rgba(255,255,255,0.95);
+        0 24px 50px rgba(31,53,86,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.36);
     }
 
-    .card img{
+    .team-card img{
       width:100%;
-      height:300px;
+      height:310px;
       object-fit:cover;
       display:block;
     }
 
-    .card-content{
+    .team-card-content{
       padding:22px;
+      position:relative;
+      z-index:1;
     }
 
-    .card-top{
+    .team-card-top{
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
       gap:12px;
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
 
-    .card-content h3{
+    .team-card-content h3{
       margin:0 0 8px;
       font-size:1.3rem;
-      color:#10223b;
+      color:#0d2745;
     }
 
-    .role{
+    .team-role{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -298,24 +358,24 @@
       border-radius:999px;
       font-size:12px;
       font-weight:800;
-      text-transform:uppercase;
       letter-spacing:1px;
-      color:#0f6db8;
-      background:rgba(15,109,184,0.08);
-      border:1px solid rgba(15,109,184,0.14);
+      text-transform:uppercase;
+      color:#0b73c4;
+      background:rgba(11,115,196,0.10);
+      border:1px solid rgba(11,115,196,0.16);
     }
 
-    .role.founder{
+    .team-role.founder{
       color:#9a6a00;
       background:rgba(255,208,84,0.18);
       border:1px solid rgba(220,166,35,0.24);
     }
 
-    .card-content p{
+    .team-card-content p{
       margin:0;
-      color:#60748e;
-      font-size:15px;
+      color:var(--text-muted);
       line-height:1.8;
+      font-size:15px;
     }
 
     .linkedin{
@@ -327,15 +387,17 @@
       align-items:center;
       justify-content:center;
       text-decoration:none;
-      color:#0f6db8;
-      background:rgba(15,109,184,0.08);
-      border:1px solid rgba(15,109,184,0.12);
+      color:#0b73c4;
+      background:rgba(255,255,255,0.18);
+      border:1px solid rgba(255,255,255,0.34);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
       transition:all .28s ease;
     }
 
     .linkedin:hover{
-      background:linear-gradient(135deg, #0f6db8, #38bdf8);
       color:#fff;
+      background:linear-gradient(135deg, #0f7fd2, #13b5f4);
       transform:translateY(-2px);
     }
 
@@ -346,9 +408,12 @@
 
     .team-footer{
       margin-top:34px;
-      padding:36px 30px;
-      border-radius:28px;
-      background:linear-gradient(135deg, #0f2038, #17395c);
+      padding:38px 32px;
+      border-radius:30px;
+      background:linear-gradient(135deg, rgba(15,32,56,0.92), rgba(23,57,92,0.88));
+      border:1px solid rgba(255,255,255,0.16);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
       box-shadow:0 24px 60px rgba(15,32,56,0.22);
       color:#fff;
     }
@@ -356,7 +421,6 @@
     .team-footer h3{
       margin:0 0 14px;
       font-size:2rem;
-      color:#fff;
     }
 
     .team-footer p{
@@ -378,7 +442,7 @@
 
     @media (max-width: 767px){
       .team-page{
-        padding:70px 16px;
+        padding:70px 0;
       }
 
       .team-hero{
@@ -386,10 +450,14 @@
         border-radius:24px;
       }
 
+      .team-hero h1{
+        font-size:2.3rem;
+      }
+
       .tabs{
         width:100%;
         justify-content:center;
-        border-radius:22px;
+        border-radius:24px;
       }
 
       .tab-btn{
@@ -406,7 +474,7 @@
         grid-template-columns:1fr;
       }
 
-      .card img{
+      .team-card img{
         height:260px;
       }
 
@@ -422,215 +490,246 @@
 </head>
 <body>
 
-<section class="team-page">
-  <div class="team-container">
+  <section class="team-page">
+    <div class="container team-shell">
 
-    <div class="team-hero">
-      <span class="team-mini-title">NAVON GLOBAL MY TEAM</span>
-      <h1>Meet the People Behind Navon Global</h1>
-      <p>
-        Our team brings together leadership, strategy, operations, and client-focused expertise
-        to help Navon Global deliver reliable, high-quality services across every engagement.
-      </p>
-      <p>
-        From long-term vision to day-to-day execution, each team member plays a role in building
-        strong partnerships, driving operational excellence, and creating measurable outcomes.
-      </p>
+      <div class="team-hero">
+        <span class="team-mini-title">NAVON GLOBAL MY TEAM</span>
+        <h1>Meet the People Behind Navon Global</h1>
+        <p>
+          Our team brings together leadership, strategy, operations, and client-focused expertise
+          to help Navon Global deliver reliable, high-quality services across every engagement.
+        </p>
+        <p>
+          From long-term vision to day-to-day execution, each team member plays a role in building
+          strong partnerships, driving operational excellence, and creating measurable outcomes.
+        </p>
 
-      <div class="team-actions">
-        <a href="../index.html#contact" class="team-btn team-btn-primary">Get in Touch</a>
-        <a href="../index.html" class="team-btn team-btn-secondary">Back to Home</a>
-      </div>
-    </div>
-
-    <div class="tabs-wrap">
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="global">Global</button>
-        <button class="tab-btn" data-tab="australia">Australia</button>
-        <button class="tab-btn" data-tab="india">India</button>
-      </div>
-    </div>
-
-    <div class="tab-content active" id="global">
-      <div class="team-panel">
-        <div class="team-panel-head">
-          <div>
-            <span class="team-panel-label">Board of Directors</span>
-            <h2>Global Leadership</h2>
-          </div>
-          <p>Core leadership supporting long-term vision, governance, strategy, and business growth.</p>
-        </div>
-
-        <div class="team-grid">
-          <div class="card">
-            <img src="../images/Hitesh.png" alt="Hitesh Shah">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Hitesh Shah</h3>
-                  <span class="role founder">Founder</span>
-                </div>
-                <a href="#" class="linkedin" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/></svg>
-                </a>
-              </div>
-              <p>Leading Navon Global with a strong focus on vision, growth, partnerships, and long-term business excellence.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/Igor.png" alt="Igor Hnatko">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Igor Hnatko</h3>
-                  <span class="role">Advisor</span>
-                </div>
-                <a href="#" class="linkedin" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/></svg>
-                </a>
-              </div>
-              <p>Providing strategic guidance, business insight, and advisory support to strengthen leadership decisions.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <img src="../images/nikhil.png" alt="Nikhil Patel">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Nikhil Patel</h3>
-                  <span class="role">Advisor</span>
-                </div>
-                <a href="#" class="linkedin" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/></svg>
-                </a>
-              </div>
-              <p>Supporting leadership with advisory insight focused on growth, planning, and operational effectiveness.</p>
-            </div>
-          </div>
+        <div class="team-actions">
+          <a href="/#contact" class="team-btn team-btn-primary">Get in Touch</a>
+          <a href="/" class="team-btn team-btn-secondary">Back to Home</a>
         </div>
       </div>
-    </div>
 
-    <div class="tab-content" id="australia">
-      <div class="team-panel">
-        <div class="team-panel-head">
-          <div>
-            <span class="team-panel-label">Regional Leadership</span>
-            <h2>Australia Team</h2>
-          </div>
-          <p>Leadership and advisory support tailored to regional growth and client engagement.</p>
+      <div class="tabs-wrap">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="global">Global</button>
+          <button class="tab-btn" data-tab="australia">Australia</button>
+          <button class="tab-btn" data-tab="india">India</button>
         </div>
+      </div>
 
-        <div class="team-grid">
-          <div class="card">
-            <img src="../images/Hitesh.png" alt="Hitesh Shah">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Hitesh Shah</h3>
-                  <span class="role founder">Founder</span>
-                </div>
-              </div>
-              <p>Driving strategic direction and aligning client needs with operations and business growth.</p>
+      <div class="tab-content active" id="global">
+        <div class="team-panel">
+          <div class="team-panel-head">
+            <div>
+              <span class="team-panel-label">Board of Directors</span>
+              <h2>Global Leadership</h2>
             </div>
+            <p>Core leadership supporting long-term vision, governance, strategy, and business growth.</p>
           </div>
 
-          <div class="card">
-            <img src="../images/Igor.png" alt="Igor Hnatko">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Igor Hnatko</h3>
-                  <span class="role">Advisor</span>
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="/images/hitesh.jpg" alt="Hitesh Shah">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Hitesh Shah</h3>
+                    <span class="team-role founder">Founder</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Hitesh Shah LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
                 </div>
+                <p>Leading Navon Global with a strong focus on vision, growth, partnerships, and long-term business excellence.</p>
               </div>
-              <p>Bringing advisory expertise to support long-term planning, performance, and regional value creation.</p>
             </div>
-          </div>
 
-          <div class="card">
-            <img src="../images/matthew.png" alt="Matthew">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Matthew</h3>
-                  <span class="role">Advisor</span>
+            <div class="team-card">
+              <img src="/images/igor.jpg" alt="Igor Hnatko">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Igor Hnatko</h3>
+                    <span class="team-role">Advisor</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Igor Hnatko LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
                 </div>
+                <p>Providing strategic guidance, business insight, and advisory support to strengthen leadership decisions.</p>
               </div>
-              <p>Contributing operational and strategic support to enhance service delivery and local market strength.</p>
+            </div>
+
+            <div class="team-card">
+              <img src="/images/nikhil.jpg" alt="Nikhil Patel">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Nikhil Patel</h3>
+                    <span class="team-role">Advisor</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Nikhil Patel LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p>Supporting leadership with advisory insight focused on growth, planning, and operational effectiveness.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="tab-content" id="india">
-      <div class="team-panel">
-        <div class="team-panel-head">
-          <div>
-            <span class="team-panel-label">Regional Leadership</span>
-            <h2>India Team</h2>
-          </div>
-          <p>Focused leadership helping deliver reliable execution, continuity, and measurable value creation.</p>
-        </div>
-
-        <div class="team-grid two">
-          <div class="card">
-            <img src="../images/Hitesh.png" alt="Hitesh Shah">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Hitesh Shah</h3>
-                  <span class="role founder">Founder</span>
-                </div>
-              </div>
-              <p>Leading with a vision for sustainable growth, service quality, and strong client partnerships.</p>
+      <div class="tab-content" id="australia">
+        <div class="team-panel">
+          <div class="team-panel-head">
+            <div>
+              <span class="team-panel-label">Regional Leadership</span>
+              <h2>Australia Team</h2>
             </div>
+            <p>Leadership and advisory support tailored to regional growth and client engagement.</p>
           </div>
 
-          <div class="card">
-            <img src="../images/nikhil.png" alt="Nikhil Patel">
-            <div class="card-content">
-              <div class="card-top">
-                <div>
-                  <h3>Nikhil Patel</h3>
-                  <span class="role">Advisor</span>
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="/images/hitesh.jpg" alt="Hitesh Shah">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Hitesh Shah</h3>
+                    <span class="team-role founder">Founder</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Hitesh Shah LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
                 </div>
+                <p>Driving strategic direction and aligning client needs with operations and business growth.</p>
               </div>
-              <p>Offering advisory support to strengthen decisions, delivery quality, and future-ready growth initiatives.</p>
+            </div>
+
+            <div class="team-card">
+              <img src="/images/igor.jpg" alt="Igor Hnatko">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Igor Hnatko</h3>
+                    <span class="team-role">Advisor</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Igor Hnatko LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p>Bringing advisory expertise to support long-term planning, performance, and regional value creation.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="/images/matthew.jpg" alt="Matthew">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Matthew</h3>
+                    <span class="team-role">Advisor</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Matthew LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p>Contributing operational and strategic support to enhance service delivery and local market strength.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="tab-content" id="india">
+        <div class="team-panel">
+          <div class="team-panel-head">
+            <div>
+              <span class="team-panel-label">Regional Leadership</span>
+              <h2>India Team</h2>
+            </div>
+            <p>Focused leadership helping deliver reliable execution, continuity, and measurable value creation.</p>
+          </div>
+
+          <div class="team-grid two">
+            <div class="team-card">
+              <img src="/images/hitesh.jpg" alt="Hitesh Shah">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Hitesh Shah</h3>
+                    <span class="team-role founder">Founder</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Hitesh Shah LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p>Leading with a vision for sustainable growth, service quality, and strong client partnerships.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <img src="/images/nikhil.jpg" alt="Nikhil Patel">
+              <div class="team-card-content">
+                <div class="team-card-top">
+                  <div>
+                    <h3>Nikhil Patel</h3>
+                    <span class="team-role">Advisor</span>
+                  </div>
+                  <a href="#" class="linkedin" aria-label="Nikhil Patel LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <p>Offering advisory support to strengthen decisions, delivery quality, and future-ready growth initiatives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-footer">
+        <h3>Leadership Built on Vision, Governance, and Excellence</h3>
+        <p>
+          At Navon Global, our leadership team is responsible for shaping the company’s direction,
+          strengthening governance, and ensuring that our services continue to evolve with client needs.
+        </p>
+        <p>
+          Their focus is on sustainable growth, service quality, innovation, and long-term value creation.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="team-footer">
-      <h3>Leadership Built on Vision, Governance, and Excellence</h3>
-      <p>
-        At Navon Global, our leadership team is responsible for shaping the company’s direction,
-        strengthening governance, and ensuring that our services continue to evolve with client needs.
-      </p>
-      <p>
-        Their focus is on sustainable growth, service quality, innovation, and long-term value creation.
-      </p>
-    </div>
+  <script>
+    document.querySelectorAll(".tab-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
 
-  </div>
-</section>
-
-<script>
-  document.querySelectorAll(".tab-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
-      document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
-
-      btn.classList.add("active");
-      document.getElementById(btn.dataset.tab).classList.add("active");
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
