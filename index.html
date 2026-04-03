@@ -847,34 +847,102 @@
       margin-top:20px;
     }
 
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:16px;
-      position:relative;
-      z-index:2;
-    }
+   .services-slider-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  z-index:2;
+}
 
-    .service-card,
-    .why-card,
-    .process-card{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--glass-border);
-      background:var(--glass-bg);
-      backdrop-filter:none;
-      -webkit-backdrop-filter:none;
-      box-shadow:
-        0 12px 30px rgba(31,53,86,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.20);
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-      will-change:transform;
-    }
+.services-slider{
+  overflow:hidden;
+  width:100%;
+  border-radius:24px;
+}
 
-    .service-card{
-      padding:22px;
-      border-radius:22px;
-    }
+.services-track{
+  display:flex;
+  gap:18px;
+  transition:transform .6s ease;
+  will-change:transform;
+}
+
+.services-track .service-card{
+  min-width:calc((100% - 36px) / 3);
+  max-width:calc((100% - 36px) / 3);
+  flex:0 0 calc((100% - 36px) / 3);
+}
+
+.services-nav{
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:28px;
+  line-height:1;
+  color:var(--primary-dark);
+  background:rgba(255,255,255,0.82);
+  border:1px solid rgba(255,255,255,0.75);
+  box-shadow:0 10px 24px rgba(31,53,86,0.10);
+  transition:.25s ease;
+  flex-shrink:0;
+}
+
+.services-nav:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.96);
+}
+
+.services-dots{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+}
+
+.services-dots button{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  border:none;
+  background:rgba(40,75,120,0.22);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.services-dots button.active{
+  background:var(--primary);
+  transform:scale(1.15);
+}
+
+@media (max-width: 992px){
+  .services-track .service-card{
+    min-width:calc((100% - 18px) / 2);
+    max-width:calc((100% - 18px) / 2);
+    flex:0 0 calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 768px){
+  .services-slider-wrap{
+    gap:10px;
+  }
+
+  .services-track .service-card{
+    min-width:100%;
+    max-width:100%;
+    flex:0 0 100%;
+  }
+
+  .services-nav{
+    width:42px;
+    height:42px;
+    font-size:24px;
+  }
+}
 
     .why-card{
       padding:20px;
@@ -1642,49 +1710,59 @@ body::before{
         <p>Structured bookkeeping support designed to maintain accurate records, improve reporting quality and support compliance.</p>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">📘</div>
-          <h3>Transaction Recording &amp; Reconciliation</h3>
-          <p>Accurate recording of income and expenses, plus regular bank and credit card reconciliations to ensure financial data is complete and correct.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
+<div class="services-slider-wrap">
+  <button class="services-nav prev" aria-label="Previous service">‹</button>
 
-        <div class="service-card">
-          <div class="service-icon">💳</div>
-          <h3>Accounts Payable &amp; Receivable Management</h3>
-          <p>Monitoring incoming and outgoing payments to help maintain cash flow visibility and reduce overdue balances.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🧾</div>
-          <h3>BAS &amp; GST Support</h3>
-          <p>Preparation and review of GST records and BAS data to ensure accurate reporting and compliance with ATO requirements.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">👥</div>
-          <h3>Payroll Data Coordination</h3>
-          <p>Integration of payroll records into your accounting system to ensure accurate wage reporting and reconciliation.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>Financial Reporting Preparation</h3>
-          <p>Monthly or quarterly financial reports that provide clear insights into business performance and position.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">⚙️</div>
-          <h3>Software Setup &amp; Optimisation</h3>
-          <p>Setup, cleanup and optimisation of bookkeeping systems to improve efficiency and reporting accuracy.</p>
-          <a href="#contact" class="card-cta">Get Started →</a>
-        </div>
+  <div class="services-slider" id="servicesSlider">
+    <div class="services-track" id="servicesTrack">
+      <div class="service-card">
+        <div class="service-icon">📘</div>
+        <h3>Transaction Recording &amp; Reconciliation</h3>
+        <p>Accurate recording of income and expenses, plus regular bank and credit card reconciliations to ensure financial data is complete and correct.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
       </div>
+
+      <div class="service-card">
+        <div class="service-icon">💳</div>
+        <h3>Accounts Payable &amp; Receivable Management</h3>
+        <p>Monitoring incoming and outgoing payments to help maintain cash flow visibility and reduce overdue balances.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>BAS &amp; GST Support</h3>
+        <p>Preparation and review of GST records and BAS data to ensure accurate reporting and compliance with ATO requirements.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👥</div>
+        <h3>Payroll Data Coordination</h3>
+        <p>Integration of payroll records into your accounting system to ensure accurate wage reporting and reconciliation.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Financial Reporting Preparation</h3>
+        <p>Monthly or quarterly financial reports that provide clear insights into business performance and position.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Software Setup &amp; Optimisation</h3>
+        <p>Setup, cleanup and optimisation of bookkeeping systems to improve efficiency and reporting accuracy.</p>
+        <a href="#contact" class="card-cta">Get Started →</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="services-nav next" aria-label="Next service">›</button>
+</div>
+
+<div class="services-dots" id="servicesDots"></div>
     </div>
   </section>
 
@@ -1925,6 +2003,116 @@ body::before{
         glow.style.top = (e.clientY - 150) + "px";
       });
     }
+
+    const servicesTrack = document.getElementById("servicesTrack");
+const servicesSlider = document.getElementById("servicesSlider");
+const prevBtn = document.querySelector(".services-nav.prev");
+const nextBtn = document.querySelector(".services-nav.next");
+const servicesDots = document.getElementById("servicesDots");
+
+if (servicesTrack && servicesSlider) {
+  const cards = Array.from(servicesTrack.children);
+  let currentIndex = 0;
+  let autoSlide;
+
+  function getCardsPerView() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, cards.length - getCardsPerView());
+  }
+
+  function updateDots() {
+    const totalSlides = getMaxIndex() + 1;
+    servicesDots.innerHTML = "";
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("button");
+      if (i === currentIndex) dot.classList.add("active");
+
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateSlider();
+        restartAutoSlide();
+      });
+
+      servicesDots.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const firstCard = cards[0];
+    if (!firstCard) return;
+
+    const cardStyle = window.getComputedStyle(firstCard);
+    const gap = parseFloat(window.getComputedStyle(servicesTrack).gap) || 0;
+    const cardWidth = firstCard.getBoundingClientRect().width + gap;
+
+    servicesTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    const dots = servicesDots.querySelectorAll("button");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    if (currentIndex >= getMaxIndex()) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+    updateSlider();
+  }
+
+  function prevSlide() {
+    if (currentIndex <= 0) {
+      currentIndex = getMaxIndex();
+    } else {
+      currentIndex--;
+    }
+    updateSlider();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(() => {
+      nextSlide();
+    }, 3000);
+  }
+
+  function restartAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    restartAutoSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    restartAutoSlide();
+  });
+
+  window.addEventListener("resize", () => {
+    currentIndex = Math.min(currentIndex, getMaxIndex());
+    updateDots();
+    updateSlider();
+  });
+
+  servicesSlider.addEventListener("mouseenter", () => clearInterval(autoSlide));
+  servicesSlider.addEventListener("mouseleave", startAutoSlide);
+
+  updateDots();
+  updateSlider();
+  startAutoSlide();
+}
+
+    
   </script>
 </body>
 </html>
