@@ -662,6 +662,68 @@
         font-size:1.55rem;
       }
     }
+    
+    /* ===== TEAM PAGE: NO-BLUR CLEAN GLASS PATCH ===== */
+
+:root{
+  --glass-bg:rgba(255,255,255,0.78);
+  --glass-bg-hover:rgba(255,255,255,0.88);
+  --glass-border:rgba(255,255,255,0.70);
+  --glass-border-hover:rgba(255,255,255,0.86);
+  --glass-shadow:0 18px 45px rgba(31,53,86,0.12);
+  --glass-inset:inset 0 1px 0 rgba(255,255,255,0.52);
+  --glass-blur:0px;
+}
+
+.team-hero,
+.team-btn-secondary,
+.tabs,
+.team-panel,
+.team-card,
+.linkedin,
+.team-footer{
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
+.team-hero,
+.tabs,
+.team-panel,
+.team-card{
+  background:var(--glass-bg) !important;
+  border-color:var(--glass-border) !important;
+}
+
+.team-card:hover{
+  background:var(--glass-bg-hover) !important;
+  border-color:var(--glass-border-hover) !important;
+}
+
+.team-btn-secondary{
+  background:rgba(255,255,255,0.80) !important;
+  border-color:rgba(255,255,255,0.72) !important;
+}
+
+.linkedin{
+  background:rgba(255,255,255,0.82) !important;
+  border-color:rgba(255,255,255,0.72) !important;
+}
+
+.team-footer{
+  background:linear-gradient(135deg, rgba(15,32,56,0.96), rgba(23,57,92,0.94)) !important;
+}
+
+/* Optional: reduce page glow softness */
+.team-page::before{
+  filter:none !important;
+  opacity:.75;
+}
+
+.team-page::after{
+  filter:none !important;
+  opacity:.75;
+}
+    
   </style>
 </head>
 <body>
