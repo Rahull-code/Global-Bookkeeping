@@ -24,13 +24,13 @@
       --border:#C7CCD4;
       --white:#ffffff;
 
-      --glass-bg:rgba(255,255,255,0.08);
-      --glass-bg-hover:rgba(255,255,255,0.14);
-      --glass-border:rgba(255,255,255,0.24);
-      --glass-border-hover:rgba(255,255,255,0.34);
+      --glass-bg:rgba(255,255,255,0.72);
+      --glass-bg-hover:rgba(255,255,255,0.82);
+      --glass-border:rgba(255,255,255,0.65);
+      --glass-border-hover:rgba(255,255,255,0.82);
       --glass-shadow:0 14px 38px rgba(31,53,86,0.10);
       --glass-inset:inset 0 1px 0 rgba(255,255,255,0.24);
-      --glass-blur:18px;
+      --glass-blur:0px;
 
       --shadow:0 18px 45px rgba(31, 53, 86, 0.08);
       --radius:22px;
@@ -177,8 +177,8 @@
       background:rgba(255,255,255,0.20);
       border-bottom:1px solid rgba(255,255,255,0.24);
       transition:.3s ease;
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
       box-shadow:0 8px 24px rgba(31,53,86,0.06);
     }
 
@@ -1282,6 +1282,129 @@
         font-size:15px;
       }
     }
+
+    /* ===== HOMEPAGE: NO-BLUR CLEAN GLASS PATCH ===== */
+
+:root{
+  --glass-bg:rgba(255,255,255,0.72);
+  --glass-bg-hover:rgba(255,255,255,0.82);
+  --glass-border:rgba(255,255,255,0.62);
+  --glass-border-hover:rgba(255,255,255,0.82);
+  --glass-shadow:0 14px 38px rgba(31,53,86,0.10);
+  --glass-inset:inset 0 1px 0 rgba(255,255,255,0.50);
+  --glass-blur:0px;
+}
+
+.navbar,
+.hero-btn-main,
+.hero-btn-ghost,
+.hero-point,
+.stat-card,
+.banner,
+.faq-item,
+.lead-wrap,
+.meeting-shell,
+.logo-box,
+.software-expertise-wrap,
+.software-expertise-card,
+.meeting-left,
+.calendar span,
+.slot,
+.service-card,
+.why-card,
+.process-card,
+.service-icon,
+.step,
+.lead-form input,
+.lead-form textarea,
+.sticky-cta a,
+footer{
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
+.navbar{
+  background:rgba(255,255,255,0.82) !important;
+  border-bottom:1px solid rgba(255,255,255,0.78) !important;
+}
+
+.navbar.scrolled{
+  background:rgba(255,255,255,0.90) !important;
+}
+
+.hero-btn-main{
+  background:rgba(163,205,241,0.70) !important;
+}
+
+.hero-btn-ghost{
+  background:rgba(255,255,255,0.22) !important;
+}
+
+.hero-point{
+  background:rgba(255,255,255,0.18) !important;
+}
+
+.stat-card,
+.banner,
+.faq-item,
+.lead-wrap,
+.meeting-shell,
+.logo-box,
+.software-expertise-wrap,
+.software-expertise-card,
+.service-card,
+.why-card,
+.process-card{
+  background:var(--glass-bg) !important;
+  border-color:var(--glass-border) !important;
+}
+
+.stat-card:hover,
+.banner:hover,
+.faq-item:hover,
+.lead-wrap:hover,
+.meeting-shell:hover,
+.logo-box:hover,
+.software-expertise-wrap:hover,
+.software-expertise-card:hover,
+.service-card:hover,
+.why-card:hover,
+.process-card:hover{
+  background:var(--glass-bg-hover) !important;
+  border-color:var(--glass-border-hover) !important;
+}
+
+.meeting-left{
+  background:rgba(255,255,255,0.72) !important;
+}
+
+.calendar span,
+.slot,
+.service-icon,
+.step,
+.lead-form input,
+.lead-form textarea{
+  background:rgba(255,255,255,0.78) !important;
+  border-color:rgba(255,255,255,0.68) !important;
+}
+
+.sticky-cta a{
+  background:rgba(40,75,120,0.90) !important;
+}
+
+footer{
+  background:rgba(31,53,86,0.82) !important;
+}
+
+/* Optional: reduce foggy overlays slightly */
+body::before{
+  background:
+    linear-gradient(115deg, rgba(255,255,255,0.06), transparent 35%),
+    radial-gradient(circle at 20% 25%, rgba(255,255,255,0.05), transparent 30%),
+    radial-gradient(circle at 80% 12%, rgba(255,255,255,0.04), transparent 24%) !important;
+}
+
+    
   </style>
 </head>
 <body>
