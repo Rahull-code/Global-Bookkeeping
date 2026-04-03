@@ -847,52 +847,57 @@
       margin-top:20px;
     }
 
-   .services-slider-wrap{
+ .services-slider-wrap{
   position:relative;
-  display:flex;
-  align-items:center;
-  gap:14px;
   z-index:2;
 }
 
 .services-slider{
-  overflow:hidden;
   width:100%;
-  border-radius:24px;
+  overflow:hidden;
+  padding:8px 6px 14px;
 }
 
 .services-track{
   display:flex;
-  gap:18px;
-  transition:transform .6s ease;
+  gap:28px;
+  transition:transform .75s ease;
   will-change:transform;
 }
 
 .services-track .service-card{
-  min-width:calc((100% - 36px) / 3);
-  max-width:calc((100% - 36px) / 3);
-  flex:0 0 calc((100% - 36px) / 3);
+  flex:0 0 calc((100% - 56px) / 3);
+  min-width:calc((100% - 56px) / 3);
+  max-width:calc((100% - 56px) / 3);
 }
 
-.services-nav{
-  width:48px;
-  height:48px;
-  border:none;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:28px;
-  line-height:1;
-  color:var(--primary-dark);
-  background:rgba(255,255,255,0.82);
-  border:1px solid rgba(255,255,255,0.75);
-  box-shadow:0 10px 24px rgba(31,53,86,0.10);
-  transition:.25s ease;
-  flex-shrink:0;
+.service-card{
+  min-height:340px;
+  padding:32px 28px 26px;
+  border-radius:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
 }
 
-.services-nav:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,0.96);
+.service-card h3{
+  font-size:18px;
+  line-height:1.5;
+  margin-bottom:14px;
+  max-width:95%;
+}
+
+.service-card p{
+  font-size:16px;
+  line-height:1.85;
+  margin-bottom:18px;
+  flex-grow:1;
+}
+
+.card-cta{
+  margin-top:auto;
+  font-size:16px;
+  font-weight:700;
 }
 
 .services-dots{
@@ -900,15 +905,17 @@
   justify-content:center;
   align-items:center;
   gap:10px;
-  margin-top:22px;
+  margin-top:18px;
+  position:relative;
+  z-index:2;
 }
 
 .services-dots button{
-  width:11px;
-  height:11px;
-  border-radius:50%;
+  width:12px;
+  height:12px;
   border:none;
-  background:rgba(40,75,120,0.22);
+  border-radius:50%;
+  background:rgba(40,75,120,0.18);
   cursor:pointer;
   transition:.25s ease;
 }
@@ -918,29 +925,50 @@
   transform:scale(1.15);
 }
 
-@media (max-width: 992px){
+@media (max-width: 1100px){
+  .services-track{
+    gap:22px;
+  }
+
   .services-track .service-card{
-    min-width:calc((100% - 18px) / 2);
-    max-width:calc((100% - 18px) / 2);
-    flex:0 0 calc((100% - 18px) / 2);
+    flex:0 0 calc((100% - 22px) / 2);
+    min-width:calc((100% - 22px) / 2);
+    max-width:calc((100% - 22px) / 2);
+  }
+
+  .service-card{
+    min-height:320px;
   }
 }
 
 @media (max-width: 768px){
-  .services-slider-wrap{
-    gap:10px;
+  .services-slider{
+    padding:6px 2px 10px;
+  }
+
+  .services-track{
+    gap:16px;
   }
 
   .services-track .service-card{
+    flex:0 0 100%;
     min-width:100%;
     max-width:100%;
-    flex:0 0 100%;
   }
 
-  .services-nav{
-    width:42px;
-    height:42px;
-    font-size:24px;
+  .service-card{
+    min-height:auto;
+    padding:26px 22px 24px;
+  }
+
+  .service-card h3{
+    font-size:17px;
+    line-height:1.45;
+  }
+
+  .service-card p{
+    font-size:15px;
+    line-height:1.75;
   }
 }
 
@@ -1711,8 +1739,6 @@ body::before{
       </div>
 
 <div class="services-slider-wrap">
-  <button class="services-nav prev" aria-label="Previous service">‹</button>
-
   <div class="services-slider" id="servicesSlider">
     <div class="services-track" id="servicesTrack">
       <div class="service-card">
@@ -1758,8 +1784,6 @@ body::before{
       </div>
     </div>
   </div>
-
-  <button class="services-nav next" aria-label="Next service">›</button>
 </div>
 
 <div class="services-dots" id="servicesDots"></div>
@@ -2004,20 +2028,18 @@ body::before{
       });
     }
 
-    const servicesTrack = document.getElementById("servicesTrack");
+ const servicesTrack = document.getElementById("servicesTrack");
 const servicesSlider = document.getElementById("servicesSlider");
-const prevBtn = document.querySelector(".services-nav.prev");
-const nextBtn = document.querySelector(".services-nav.next");
 const servicesDots = document.getElementById("servicesDots");
 
-if (servicesTrack && servicesSlider) {
+if (servicesTrack && servicesSlider && servicesDots) {
   const cards = Array.from(servicesTrack.children);
   let currentIndex = 0;
   let autoSlide;
 
   function getCardsPerView() {
     if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth <= 992) return 2;
+    if (window.innerWidth <= 1100) return 2;
     return 3;
   }
 
@@ -2026,10 +2048,10 @@ if (servicesTrack && servicesSlider) {
   }
 
   function updateDots() {
-    const totalSlides = getMaxIndex() + 1;
+    const total = getMaxIndex() + 1;
     servicesDots.innerHTML = "";
 
-    for (let i = 0; i < totalSlides; i++) {
+    for (let i = 0; i < total; i++) {
       const dot = document.createElement("button");
       if (i === currentIndex) dot.classList.add("active");
 
@@ -2047,56 +2069,29 @@ if (servicesTrack && servicesSlider) {
     const firstCard = cards[0];
     if (!firstCard) return;
 
-    const cardStyle = window.getComputedStyle(firstCard);
-    const gap = parseFloat(window.getComputedStyle(servicesTrack).gap) || 0;
-    const cardWidth = firstCard.getBoundingClientRect().width + gap;
+    const gap = parseFloat(getComputedStyle(servicesTrack).gap) || 0;
+    const cardWidth = firstCard.offsetWidth + gap;
 
     servicesTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 
-    const dots = servicesDots.querySelectorAll("button");
-    dots.forEach((dot, index) => {
+    servicesDots.querySelectorAll("button").forEach((dot, index) => {
       dot.classList.toggle("active", index === currentIndex);
     });
   }
 
   function nextSlide() {
-    if (currentIndex >= getMaxIndex()) {
-      currentIndex = 0;
-    } else {
-      currentIndex++;
-    }
-    updateSlider();
-  }
-
-  function prevSlide() {
-    if (currentIndex <= 0) {
-      currentIndex = getMaxIndex();
-    } else {
-      currentIndex--;
-    }
+    currentIndex = currentIndex >= getMaxIndex() ? 0 : currentIndex + 1;
     updateSlider();
   }
 
   function startAutoSlide() {
-    autoSlide = setInterval(() => {
-      nextSlide();
-    }, 3000);
+    autoSlide = setInterval(nextSlide, 3200);
   }
 
   function restartAutoSlide() {
     clearInterval(autoSlide);
     startAutoSlide();
   }
-
-  nextBtn.addEventListener("click", () => {
-    nextSlide();
-    restartAutoSlide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    prevSlide();
-    restartAutoSlide();
-  });
 
   window.addEventListener("resize", () => {
     currentIndex = Math.min(currentIndex, getMaxIndex());
