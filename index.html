@@ -971,6 +971,68 @@
     line-height:1.75;
   }
 }
+    
+      /* =========================
+   SERVICE CARD HOVER EFFECT
+========================= */
+
+.service-card{
+  position: relative;
+  overflow: hidden;
+  transition: transform .35s ease, box-shadow .35s ease, border .35s ease;
+  cursor: pointer;
+}
+
+.service-card:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 50px rgba(31,53,86,0.18),
+    0 0 0 1px rgba(255,255,255,0.4) inset;
+}
+
+.service-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  opacity:0;
+  transition:.4s ease;
+}
+
+.service-card:hover::before{
+  opacity:1;
+}
+
+.service-card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform:skewX(-20deg);
+  transition:.6s;
+}
+
+.service-card:hover::after{
+  left:120%;
+}
+
+.service-card:hover .service-icon{
+  transform: scale(1.2) rotate(6deg);
+}
+
+.service-card:hover h3{
+  color: var(--primary);
+}
+
+.service-card:hover .card-cta{
+  transform: translateX(6px);
+}
+    
 
     .why-card{
       padding:20px;
