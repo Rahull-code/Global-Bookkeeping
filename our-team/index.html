@@ -243,7 +243,6 @@
       width:100%;
     }
 
-    /* TEAM PAGE */
     .team-page{
       padding:34px 0 60px;
       position:relative;
@@ -662,68 +661,64 @@
         font-size:1.55rem;
       }
     }
-    
-    /* ===== TEAM PAGE: NO-BLUR CLEAN GLASS PATCH ===== */
 
-:root{
-  --glass-bg:rgba(255,255,255,0.78);
-  --glass-bg-hover:rgba(255,255,255,0.88);
-  --glass-border:rgba(255,255,255,0.70);
-  --glass-border-hover:rgba(255,255,255,0.86);
-  --glass-shadow:0 18px 45px rgba(31,53,86,0.12);
-  --glass-inset:inset 0 1px 0 rgba(255,255,255,0.52);
-  --glass-blur:0px;
-}
+    :root{
+      --glass-bg:rgba(255,255,255,0.78);
+      --glass-bg-hover:rgba(255,255,255,0.88);
+      --glass-border:rgba(255,255,255,0.70);
+      --glass-border-hover:rgba(255,255,255,0.86);
+      --glass-shadow:0 18px 45px rgba(31,53,86,0.12);
+      --glass-inset:inset 0 1px 0 rgba(255,255,255,0.52);
+      --glass-blur:0px;
+    }
 
-.team-hero,
-.team-btn-secondary,
-.tabs,
-.team-panel,
-.team-card,
-.linkedin,
-.team-footer{
-  backdrop-filter:none !important;
-  -webkit-backdrop-filter:none !important;
-}
+    .team-hero,
+    .team-btn-secondary,
+    .tabs,
+    .team-panel,
+    .team-card,
+    .linkedin,
+    .team-footer{
+      backdrop-filter:none !important;
+      -webkit-backdrop-filter:none !important;
+    }
 
-.team-hero,
-.tabs,
-.team-panel,
-.team-card{
-  background:var(--glass-bg) !important;
-  border-color:var(--glass-border) !important;
-}
+    .team-hero,
+    .tabs,
+    .team-panel,
+    .team-card{
+      background:var(--glass-bg) !important;
+      border-color:var(--glass-border) !important;
+    }
 
-.team-card:hover{
-  background:var(--glass-bg-hover) !important;
-  border-color:var(--glass-border-hover) !important;
-}
+    .team-card:hover{
+      background:var(--glass-bg-hover) !important;
+      border-color:var(--glass-border-hover) !important;
+    }
 
-.team-btn-secondary{
-  background:rgba(255,255,255,0.80) !important;
-  border-color:rgba(255,255,255,0.72) !important;
-}
+    .team-btn-secondary{
+      background:rgba(255,255,255,0.80) !important;
+      border-color:rgba(255,255,255,0.72) !important;
+    }
 
-.linkedin{
-  background:rgba(255,255,255,0.82) !important;
-  border-color:rgba(255,255,255,0.72) !important;
-}
+    .linkedin{
+      background:rgba(255,255,255,0.82) !important;
+      border-color:rgba(255,255,255,0.72) !important;
+    }
 
-.team-footer{
-  background:linear-gradient(135deg, rgba(15,32,56,0.96), rgba(23,57,92,0.94)) !important;
-}
+    .team-footer{
+      background:linear-gradient(135deg, rgba(15,32,56,0.96), rgba(23,57,92,0.94)) !important;
+    }
 
-/* Optional: reduce page glow softness */
-.team-page::before{
-  filter:none !important;
-  opacity:.75;
-}
+    .team-page::before{
+      filter:none !important;
+      opacity:.75;
+    }
 
-.team-page::after{
-  filter:none !important;
-  opacity:.75;
-}
-    
+    .team-page::after{
+      filter:none !important;
+      opacity:.75;
+    }
   </style>
 </head>
 <body>
@@ -735,12 +730,12 @@
       </a>
 
       <nav class="nav-links">
-      <a href="/Global-Bookkeeping/#software">Software</a>
-      <a href="/Global-Bookkeeping/#services">Services</a>
-      <a href="/Global-Bookkeeping/#process">Process</a>
-      <a href="/Global-Bookkeeping/our-team/" class="active">Our Team</a>
-      <a href="/Global-Bookkeeping/#faq">FAQs</a>
-      <a href="/Global-Bookkeeping/#contact">Contact</a>
+        <a href="/Global-Bookkeeping/#software">Software</a>
+        <a href="/Global-Bookkeeping/#services">Services</a>
+        <a href="/Global-Bookkeeping/#process">Process</a>
+        <a href="/Global-Bookkeeping/our-team/" class="active">Our Team</a>
+        <a href="/Global-Bookkeeping/#faq">FAQs</a>
+        <a href="/Global-Bookkeeping/#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -777,10 +772,26 @@
         <div class="team-panel">
           <div class="team-panel-head">
             <div>
-              <span class="eyebrow">Board of Directors</span>
-              <h2>Global Leadership</h2>
+              <span class="eyebrow">My Team</span>
+              <h2>Meet the People Behind Navon Global</h2>
             </div>
-            <p>Core leadership supporting long-term vision, governance, strategy, and business growth.</p>
+            <p>
+              Our team brings together leadership, strategy, operations, and client-focused expertise to help Navon Global deliver reliable, high-quality services across every engagement.
+              From long-term vision to day-to-day execution, each team member plays a role in building strong partnerships, driving operational excellence, and creating measurable outcomes for our clients.
+            </p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <a href="/#contact" class="btn btn-primary">Get in Touch</a>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Team Categories</h3>
+            <p style="color:var(--text-muted);">Board of Directors | Management Team</p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <h3 style="color:var(--primary-dark);">Board of Directors</h3>
           </div>
 
           <div class="team-grid">
@@ -789,17 +800,15 @@
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Hitesh Shah</h3>
+                    <h3>HITESH SHAH</h3>
                     <span class="team-role founder">Founder</span>
                   </div>
-                    <a href="https://www.linkedin.com/in/hitesh-shah-517198162" 
-                    class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Hitesh Shah LinkedIn">
+                  <a href="https://www.linkedin.com/in/hitesh-shah-517198162" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Hitesh Shah LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
                     </svg>
                   </a>
                 </div>
-                <p>Leading Navon Global with a strong focus on vision, growth, partnerships, and long-term business excellence.</p>
               </div>
             </div>
 
@@ -808,7 +817,7 @@
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Igor Hnatko</h3>
+                    <h3>IGOR HNATKO</h3>
                     <span class="team-role">Advisor</span>
                   </div>
                   <a href="https://www.linkedin.com/in/igor-hnatko-ca-cpa-26b49a6/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Igor Hnatko LinkedIn">
@@ -817,7 +826,6 @@
                     </svg>
                   </a>
                 </div>
-                <p>Providing strategic guidance, business insight, and advisory support to strengthen leadership decisions.</p>
               </div>
             </div>
 
@@ -826,7 +834,7 @@
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Nikhil Patel</h3>
+                    <h3>NIKHIL PATEL</h3>
                     <span class="team-role">Advisor</span>
                   </div>
                   <a href="#" class="linkedin" aria-label="Nikhil Patel LinkedIn">
@@ -835,9 +843,17 @@
                     </svg>
                   </a>
                 </div>
-                <p>Supporting leadership with advisory insight focused on growth, planning, and operational effectiveness.</p>
               </div>
             </div>
+          </div>
+
+          <div style="margin-top:30px;">
+            <p>
+              At Navon Global, our leadership team is responsible for shaping the company’s direction, strengthening governance, and ensuring that our services continue to evolve with client needs. Their focus is on sustainable growth, service quality, innovation, and long-term value creation.
+            </p>
+            <p style="margin-top:12px;">
+              With strong industry knowledge and a commitment to excellence, the Board provides strategic guidance that supports both our internal teams and the clients who trust us as a partner.
+            </p>
           </div>
         </div>
       </div>
@@ -846,66 +862,88 @@
         <div class="team-panel">
           <div class="team-panel-head">
             <div>
-              <span class="eyebrow">Regional Leadership</span>
-              <h2>Australia Team</h2>
+              <span class="eyebrow">Navon Global Australia</span>
+              <h2>Meet the Team Behind Navon Global Australia</h2>
             </div>
-            <p>Leadership and advisory support tailored to regional growth and client engagement.</p>
+            <p>
+              At Navon Global Australia, our team is built around one goal, helping businesses operate with clarity, compliance, and confidence.
+              From bookkeeping and payroll to strategic financial leadership, our people combine local expertise with global standards to deliver reliable, scalable support for growing Australian businesses.
+              We work closely with founders, business owners, and finance teams to simplify complexity, improve visibility, and support smarter decision-making at every stage.
+            </p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <a href="/#contact" class="btn btn-primary">Book a Free Consultation</a>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <h3 style="color:var(--primary-dark); margin-bottom:6px;">Our Leadership &amp; Team</h3>
+            <p style="color:var(--text-muted);">Leadership Team | Operations &amp; Support Team</p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <h3 style="color:var(--primary-dark);">Leadership Team</h3>
           </div>
 
           <div class="team-grid">
             <div class="team-card">
-              <img src="../images/Hitesh.png" alt="Hitesh Shah">
+              <img src="../images/Hitesh.jpg" alt="Hitesh Shah">
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Hitesh Shah</h3>
-                    <span class="team-role founder">Founder</span>
+                    <h3>HITESH SHAH</h3>
+                    <span class="team-role founder">Director – Navon Global Australia</span>
                   </div>
-                  <a href="https://www.linkedin.com/in/hitesh-shah-517198162" class="linkedin" aria-label="Hitesh Shah LinkedIn">
+                  <a href="https://www.linkedin.com/in/hitesh-shah-517198162" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Hitesh Shah LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
                     </svg>
                   </a>
                 </div>
-                <p>Driving strategic direction and aligning client needs with operations and business growth.</p>
+                <p>Leads strategic direction, client partnerships, and overall service delivery across Australia.</p>
               </div>
             </div>
 
             <div class="team-card">
-              <img src="../images/Igor.png" alt="Igor Hnatko">
+              <img src="../images/Igor.jpg" alt="Igor Hnatko">
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Igor Hnatko</h3>
+                    <h3>IGOR HNATKO</h3>
                     <span class="team-role">Advisor</span>
                   </div>
-                  <a href="https://www.linkedin.com/in/igor-hnatko-ca-cpa-26b49a6/" class="linkedin" aria-label="Igor Hnatko LinkedIn">
+                  <a href="https://www.linkedin.com/in/igor-hnatko-ca-cpa-26b49a6/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Igor Hnatko LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
                     </svg>
                   </a>
                 </div>
-                <p>Bringing advisory expertise to support long-term planning, performance, and regional value creation.</p>
               </div>
             </div>
 
             <div class="team-card">
-              <img src="../images/matthew.png" alt="Matthew">
+              <img src="../images/matthew.jpg" alt="Matthew Farronato">
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
-                    <h3>Matthew</h3>
+                    <h3>MATTHEW FARRONATO</h3>
                     <span class="team-role">Advisor</span>
                   </div>
-                  <a href="#" class="linkedin" aria-label="Matthew LinkedIn">
+                  <a href="#" class="linkedin" aria-label="Matthew Farronato LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
                     </svg>
                   </a>
                 </div>
-                <p>Contributing operational and strategic support to enhance service delivery and local market strength.</p>
               </div>
             </div>
+          </div>
+
+          <div style="margin-top:30px;">
+            <h3 style="color:var(--primary-dark); margin-bottom:10px;">Leadership Overview</h3>
+            <p>
+              Our leadership team brings deep experience in Australian accounting, compliance, and business advisory. With a strong focus on accuracy, transparency, and long-term value, they guide both our internal teams and our clients toward better financial outcomes. Every decision is driven by a commitment to compliance, efficiency, and sustainable growth.
+            </p>
           </div>
         </div>
       </div>
@@ -914,28 +952,44 @@
         <div class="team-panel">
           <div class="team-panel-head">
             <div>
-              <span class="eyebrow">Regional Leadership</span>
-              <h2>India Team</h2>
+              <span class="eyebrow">Navon Global India</span>
+              <h2>Meet the Leadership Behind Navon Global India</h2>
             </div>
-            <p>Focused leadership helping deliver reliable execution, continuity, and measurable value creation.</p>
+            <p>
+              Navon Global India is driven by focused leadership, strategic thinking, and a commitment to delivering high-quality financial and business support services.
+              With a strong foundation in global processes and local expertise, our leadership ensures that every engagement is handled with precision, professionalism, and a long-term perspective.
+              We operate as a lean, agile team, enabling efficiency, flexibility, and consistent delivery for our global clients.
+            </p>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <a href="/#contact" class="btn btn-primary">Connect With Our Team</a>
+          </div>
+
+          <div style="margin-bottom:20px;">
+            <h3 style="color:var(--primary-dark);">Leadership Team</h3>
           </div>
 
           <div class="team-grid two">
             <div class="team-card">
-              <img src="../images/Hitesh.png" alt="Hitesh Shah">
+              <img src="../images/Hitesh.jpg" alt="Hitesh Shah">
               <div class="team-card-content">
                 <div class="team-card-top">
                   <div>
                     <h3>Hitesh Shah</h3>
-                    <span class="team-role founder">Founder</span>
+                    <span class="team-role founder">Founder – Navon Global India</span>
                   </div>
-                  <a href="https://www.linkedin.com/in/hitesh-shah-517198162" class="linkedin" aria-label="Hitesh Shah LinkedIn">
+                  <a href="https://www.linkedin.com/in/hitesh-shah-517198162" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="Hitesh Shah LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 0 0 3.28 4.97c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 1 0 0-3.94ZM20.44 12.63c0-3.1-1.65-4.54-3.86-4.54-1.78 0-2.57.98-3.01 1.67V8.5h-3.38c.04.84 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.88 1.03 1.88 2.54V20h3.38v-7.37Z"/>
                     </svg>
                   </a>
                 </div>
-                <p>Leading with a vision for sustainable growth, service quality, and strong client partnerships.</p>
+                <p>
+                  Hitesh Shah leads Navon Global India with a vision to build a globally trusted outsourcing and financial services partner.
+                  With extensive experience in business operations, client management, and service delivery, he focuses on creating scalable systems, maintaining service excellence, and building long-term client relationships.
+                  His leadership ensures that Navon Global India consistently delivers reliable, high-quality support aligned with global standards.
+                </p>
               </div>
             </div>
 
@@ -945,7 +999,7 @@
                 <div class="team-card-top">
                   <div>
                     <h3>Nikhil Patel</h3>
-                    <span class="team-role">Advisor</span>
+                    <span class="team-role">Advisor – Navon Global India</span>
                   </div>
                   <a href="#" class="linkedin" aria-label="Nikhil Patel LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -953,7 +1007,11 @@
                     </svg>
                   </a>
                 </div>
-                <p>Offering advisory support to strengthen decisions, delivery quality, and future-ready growth initiatives.</p>
+                <p>
+                  Nikhil Patel provides strategic guidance and advisory support across business growth, operations, and process optimization.
+                  With a strong understanding of market dynamics and business strategy, he plays a key role in strengthening Navon Global India’s direction and long-term positioning.
+                  His insights help drive smarter decision-making and sustainable growth.
+                </p>
               </div>
             </div>
           </div>
